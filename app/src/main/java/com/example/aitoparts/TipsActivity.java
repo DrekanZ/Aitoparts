@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TipsActivity extends AppCompatActivity {
+public class TipsActivity extends AppCompatActivity implements RecyclerTipsInterface {
 
     ConstraintLayout backButtonTips;
     RecyclerView recyclerView;
@@ -83,7 +84,7 @@ public class TipsActivity extends AppCompatActivity {
                             }
 
                             //creating adapter object and setting it to recyclerview
-                            TipsAdapter adapter = new TipsAdapter(TipsActivity.this, tipsList);
+                            TipsAdapter adapter = new TipsAdapter(TipsActivity.this, tipsList, TipsActivity.this);
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -99,5 +100,13 @@ public class TipsActivity extends AppCompatActivity {
 
         //adding our stringrequest to queue
         Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+//        Toast.makeText(this, tipsList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(TipsActivity.this,TipsPage.class);
+        intent.putExtra("id",String.valueOf(tipsList.get(position).getId()));
+        startActivity(intent);
     }
 }

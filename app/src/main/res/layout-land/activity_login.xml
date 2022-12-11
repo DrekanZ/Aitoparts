@@ -41,6 +41,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_password"
             android:gravity="center_horizontal"

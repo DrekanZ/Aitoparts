@@ -1,6 +1,5 @@
 package com.example.aitoparts;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -24,14 +23,11 @@ import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import kotlin.text.UStringsKt;
-
-public class register extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     EditText username, nama, password, confPassword, noTelp;
     Button registerButton;
@@ -51,12 +47,12 @@ public class register extends AppCompatActivity {
 
         registerButton = (Button) findViewById(R.id.buttonRegister);
         gotoLogin = (TextView) findViewById(R.id.textViewToLogin);
-        progressDialog = new ProgressDialog(register.this);
+        progressDialog = new ProgressDialog(Register.this);
 
         gotoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginIntent = new Intent(register.this,Login.class);
+                Intent loginIntent = new Intent(Register.this,Login.class);
                 startActivity(loginIntent);
             }
         });
@@ -98,7 +94,7 @@ public class register extends AppCompatActivity {
                                 String resp = jsonObject.getString("server_response");
                                 if (resp.equals("[{\"status\":\"OK\"}]")) {
                                     Toast.makeText(getApplicationContext(),"Registrasi Berhasil", Toast.LENGTH_SHORT).show();
-                                    Intent loginIntent = new Intent(register.this,Login.class);
+                                    Intent loginIntent = new Intent(Register.this,Login.class);
                                     startActivity(loginIntent);
                                 } else {
                                     Toast.makeText(getApplicationContext(), resp,Toast.LENGTH_SHORT).show();
@@ -124,7 +120,7 @@ public class register extends AppCompatActivity {
                 }
             };
 
-            VolleyConnection.getInstance(register.this).addToRequestQue(stringRequest);
+            VolleyConnection.getInstance(Register.this).addToRequestQue(stringRequest);
 
             new Handler().postDelayed(new Runnable() {
                 @Override

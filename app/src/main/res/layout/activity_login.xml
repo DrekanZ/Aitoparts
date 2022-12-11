@@ -43,6 +43,7 @@
             android:layout_width="match_parent"
             android:id="@+id/textInputPassword"
             android:layout_height="match_parent"
+            android:inputType="textPassword"
             android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_password"
             android:gravity="center_horizontal"

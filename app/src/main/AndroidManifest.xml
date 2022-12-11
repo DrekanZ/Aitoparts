@@ -17,13 +17,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".PartsActivity"
+            android:name=".TipsPage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <!-- tools:replace="android:appComponentFactory"> -->
+        <activity
+            android:name=".PartsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- tools:replace="android:appComponentFactory"> -->
         <activity
             android:name=".TipsActivity"
             android:exported="false">
@@ -32,7 +38,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".register"
+            android:name=".Register"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

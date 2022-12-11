@@ -15,13 +15,15 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder> {
+    private final RecyclerTipsInterface recyclerTipsInterface;
 
     private Context mCtx;
     private List<Tips> tipsList;
 
-    public TipsAdapter(Context mCtx, List<Tips> tipsList) {
+    public TipsAdapter(Context mCtx, List<Tips> tipsList, RecyclerTipsInterface recyclerTipsInterface) {
         this.mCtx = mCtx;
         this.tipsList = tipsList;
+        this.recyclerTipsInterface = recyclerTipsInterface;
     }
 
     @NonNull
@@ -29,7 +31,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder
     public TipsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.recyclertipslayout,null);
-        return new TipsViewHolder(view);
+        return new TipsViewHolder(view, recyclerTipsInterface);
     }
 
     @Override
@@ -48,17 +50,32 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder
 
     }
 
-    class TipsViewHolder extends RecyclerView.ViewHolder {
+    public static class TipsViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
         TextView textView, textViewTitle;
 
-        public TipsViewHolder(View itemView) {
+        public TipsViewHolder(View itemView, RecyclerTipsInterface recyclerTipsInterface) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.imageTipsRecycler);
             textView = (TextView) itemView.findViewById(R.id.textViewTipsRecycler);
             textViewTitle = (TextView) itemView.findViewById(R.id.textViewTitleRecycler);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerTipsInterface != null) {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION)
+                        {
+                            recyclerTipsInterface.onItemClick(pos);
+                        }
+
+                    }
+                }
+            });
         }
     }
 
