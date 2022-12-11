@@ -8,5 +8,3 @@ Aplikasi ini memungkinkan pengguna untuk melihat reservasi yang tersedia, memili
 Aplikasi ini dibangun menggunakan Java dan XML di Android Studio, dan memanfaatkan MySQL dengan XAMPP sebagai database.
 
 Bantuin kerjain bangsat
-...
-fork
