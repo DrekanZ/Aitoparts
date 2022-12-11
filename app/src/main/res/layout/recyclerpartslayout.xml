@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <RelativeLayout
+                android:id="@+id/relativeLayoutParts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/imageViewParts"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="4dp"
+                    />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/imageViewParts"
+                    android:id="@+id/textViewTitleParts"
+                    android:text="Title"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_below="@id/imageViewParts"
+                    android:text="Price"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:textColor="#000000"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/stocktext"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/stockValue"
+                android:layout_alignBottom="@id/relativeLayoutParts"
+                android:text="Stock: "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/stockValue"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginRight="20dp"
+                android:textAlignment="textStart"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:layout_alignBottom="@id/relativeLayoutParts"
+                android:layout_alignRight="@id/relativeLayoutParts"
+                />
+
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

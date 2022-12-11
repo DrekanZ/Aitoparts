@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/white"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageTipsRecycler"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_toRightOf="@id/imageTipsRecycler"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewTitleRecycler"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textViewTipsRecycler"
+                android:layout_width="match_parent"
+                android:layout_below="@id/textViewTitleRecycler"
+                android:layout_toRightOf="@id/imageTipsRecycler"
+                android:layout_marginLeft="5dp"
+                android:layout_height="match_parent"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

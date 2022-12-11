@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Aitoparts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="toRegister"><u>Register</u></string>
+    <string name="toLogin">Sudah punya akun? <b>Masuk</b></string>
+
+    <string name="BookingBaru"><b>BOOKING BARU</b></string>
+    <string name="JanjiSaya"><b>JANJI SAYA</b></string>
+    <string name="SpareParts"><b>SPARE PARTS</b></string>
+    <string name="TipsPerawatan"><b>TIPS PERAWATAN KENDARAAN</b></string>
+
+    <string name="ProfileSaya"><b>Profil Saya</b></string>
+</resources>
