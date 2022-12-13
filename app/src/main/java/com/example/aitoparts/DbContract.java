@@ -1,7 +1,7 @@
 package com.example.aitoparts;
 
 public class DbContract {
-    private static String serverIP="192.168.0.7";
+    private static String serverIP="10.253.0.101";
 
     public static final String SERVER_LOGIN_URL="http://"+ serverIP +"/loginAPI/checkLogin.php";
     public static final String SERVER_REGISTER_URL="http://"+ serverIP +"/loginAPI/createData.php";
