@@ -1,6 +1,8 @@
 package com.example.aitoparts;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -9,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,12 +20,12 @@ import android.view.ViewGroup;
  */
 public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -54,6 +57,7 @@ public class ProfileFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -63,9 +67,17 @@ public class ProfileFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         ConstraintLayout logoutProfile = (ConstraintLayout) view.findViewById(R.id.logOutButton);
 
+        sharedPreferences = getActivity().getSharedPreferences("loginSession", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        TextView profileName = (TextView) view.findViewById(R.id.profileNameProfile);
+        profileName.setText(sharedPreferences.getString("nama","ERROR USERNAME NOT FOUND"));
+
         logoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                editor.remove("logged_in");
+                editor.commit();
                 Intent intent = new Intent(view.getContext(), Login.class);
                 view.getContext().startActivity(intent);
             }
