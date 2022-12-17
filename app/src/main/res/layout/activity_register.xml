@@ -161,6 +161,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="No telepon"
+        android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
