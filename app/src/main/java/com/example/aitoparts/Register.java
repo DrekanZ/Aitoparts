@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -34,10 +35,19 @@ public class Register extends AppCompatActivity {
     TextView gotoLogin;
     ProgressDialog progressDialog;
 
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        sharedPreferences = getSharedPreferences("loginSession",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        checkSession();
 
         username = (EditText) findViewById(R.id.editTextUsernameRegister);
         nama = (EditText) findViewById(R.id.editTextNameRegister);
@@ -139,4 +149,14 @@ public class Register extends AppCompatActivity {
         NetworkInfo networkinfo = connectivityManager.getActiveNetworkInfo();
         return ((networkinfo != null) && (networkinfo.isConnected()));
     }
+
+    private void checkSession()
+    {
+        if (sharedPreferences.getBoolean("logged_in",false))
+        {
+            Intent intent = new Intent(Register.this,MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
 }

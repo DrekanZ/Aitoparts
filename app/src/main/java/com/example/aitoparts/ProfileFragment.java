@@ -80,6 +80,7 @@ public class ProfileFragment extends Fragment {
                 editor.commit();
                 Intent intent = new Intent(view.getContext(), Login.class);
                 view.getContext().startActivity(intent);
+                getActivity().finish();
             }
         });
 

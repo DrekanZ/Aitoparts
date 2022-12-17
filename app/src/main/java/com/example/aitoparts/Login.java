@@ -32,12 +32,13 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
 
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     EditText loginUsername, loginPassword;
     Button buttonLogin;
     TextView gotoRegister;
     ProgressDialog progressDialog;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,6 @@ public class Login extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("loginSession",MODE_PRIVATE);
         editor = sharedPreferences.edit();
-
-        checkSession();
 
         progressDialog = new ProgressDialog(Login.this);
         loginUsername = (EditText) findViewById(R.id.textInputUsername);
@@ -69,8 +68,8 @@ public class Login extends AppCompatActivity {
         gotoRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(Login.this, Register.class);
-                startActivity(registerIntent);
+                Intent toRegister = new Intent(Login.this, Register.class);
+                startActivity(toRegister);
             }
         });
 
@@ -89,8 +88,7 @@ public class Login extends AppCompatActivity {
                                 if (resp.equals("[{\"status\":\"OK\"}]")) {
                                     Toast.makeText(getApplicationContext(),"Login Berhasil", Toast.LENGTH_SHORT).show();
                                     getUserCred(username);
-                                    Intent mainMenuIntent = new Intent(Login.this,MainActivity.class);
-                                    startActivity(mainMenuIntent);
+
                                 } else {
                                     Toast.makeText(getApplicationContext(), resp,Toast.LENGTH_SHORT).show();
                                 }
@@ -145,7 +143,13 @@ public class Login extends AppCompatActivity {
 
                                 editor.putBoolean("logged_in",true);
                                 editor.putString("nama",jsonObject.getString("nama"));
-                                editor.commit();
+                                while (!editor.commit())
+                                {
+                                    editor.commit();
+
+                                }
+                                Intent loginIntent = new Intent(Login.this, MainActivity.class);
+                                startActivity(loginIntent);
 //                                loginUsername.setText(jsonObject.getString("nama"));
 //                                Toast.makeText(Login.this, jsonObject.getString("nama"), Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
@@ -186,13 +190,7 @@ public class Login extends AppCompatActivity {
         return ((networkinfo != null) && (networkinfo.isConnected()));
     }
 
-    private void checkSession()
-    {
-        if (sharedPreferences.getBoolean("logged_in",false))
-        {
-            Intent intent = new Intent(Login.this,MainActivity.class);
-            startActivity(intent);
-        }
-    }
+
+
 
 }
