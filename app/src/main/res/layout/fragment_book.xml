@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookFragment"
-    android:background="@color/white">
+    android:background="@color/F5F5F5">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

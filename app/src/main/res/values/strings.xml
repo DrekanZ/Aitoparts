@@ -8,10 +8,10 @@
     <string name="toRegister"><u>Register</u></string>
     <string name="toLogin">Sudah punya akun? <b>Masuk</b></string>
 
-    <string name="BookingBaru"><b>BOOKING BARU</b></string>
-    <string name="JanjiSaya"><b>JANJI SAYA</b></string>
-    <string name="SpareParts"><b>SPARE PARTS</b></string>
-    <string name="TipsPerawatan"><b>TIPS PERAWATAN KENDARAAN</b></string>
+    <string name="BookingBaru"><b>Booking Baru</b></string>
+    <string name="JanjiSaya"><b>Riwayat Booking</b></string>
+    <string name="SpareParts"><b>Spare Parts</b></string>
+    <string name="TipsPerawatan"><b>Tips</b></string>
 
     <string name="ProfileSaya"><b>Profil Saya</b></string>
 </resources>
