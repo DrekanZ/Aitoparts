@@ -69,10 +69,6 @@ public class TipsPage extends AppCompatActivity {
                             textViewContentTipsPage.setText(tip.getString("teks"));
 
                             Glide.with(getApplicationContext()).load(tip.getString("image")).into(imageViewTitleTipsPage);
-
-
-//                            TipsAdapter adapter = new TipsAdapter(TipsActivity.this, tipsList, TipsActivity.this);
-//                            recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -92,7 +88,6 @@ public class TipsPage extends AppCompatActivity {
             }
         };
 
-        //adding our stringrequest to queue
         Volley.newRequestQueue(this).add(stringRequest);
     }
 }
