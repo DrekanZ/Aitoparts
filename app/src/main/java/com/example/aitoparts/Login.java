@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,6 +30,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity {
+
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     EditText loginUsername, loginPassword;
     Button buttonLogin;
@@ -38,6 +44,9 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sharedPreferences = getSharedPreferences("loginSession",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         progressDialog = new ProgressDialog(Login.this);
         loginUsername = (EditText) findViewById(R.id.textInputUsername);
@@ -59,14 +68,14 @@ public class Login extends AppCompatActivity {
         gotoRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(Login.this, Register.class);
-                startActivity(registerIntent);
+                Intent toRegister = new Intent(Login.this, Register.class);
+                startActivity(toRegister);
             }
         });
 
     }
 
-    public void checkLoginToServer(final String username, final String password) {
+    private void checkLoginToServer(final String username, final String password) {
         if (checkNetworkConnection()) {
             progressDialog.show();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_LOGIN_URL,
@@ -78,8 +87,8 @@ public class Login extends AppCompatActivity {
                                 String resp = jsonObject.getString("server_response");
                                 if (resp.equals("[{\"status\":\"OK\"}]")) {
                                     Toast.makeText(getApplicationContext(),"Login Berhasil", Toast.LENGTH_SHORT).show();
-                                    Intent mainMenuIntent = new Intent(Login.this,MainActivity.class);
-                                    startActivity(mainMenuIntent);
+                                    getUserCred(username);
+
                                 } else {
                                     Toast.makeText(getApplicationContext(), resp,Toast.LENGTH_SHORT).show();
                                 }
@@ -117,6 +126,62 @@ public class Login extends AppCompatActivity {
         }
 
 
+    }
+
+
+    private void getUserCred(final String username) {
+        if (checkNetworkConnection()) {
+            progressDialog.show();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_GETUSERCRED_URL,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONArray jsonArray = new JSONArray(response);
+
+                                JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+                                editor.putBoolean("logged_in",true);
+                                editor.putString("nama",jsonObject.getString("nama"));
+                                while (!editor.commit())
+                                {
+                                    editor.commit();
+
+                                }
+                                Intent loginIntent = new Intent(Login.this, MainActivity.class);
+                                startActivity(loginIntent);
+//                                loginUsername.setText(jsonObject.getString("nama"));
+//                                Toast.makeText(Login.this, jsonObject.getString("nama"), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("username", username);
+                    return params;
+                }
+            };
+
+            VolleyConnection.getInstance(Login.this).addToRequestQue(stringRequest);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    progressDialog.cancel();
+                }
+            }, 2000);
+        } else
+        {
+            Toast.makeText(getApplicationContext(),"Koneksi Gagal", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public boolean checkNetworkConnection() {

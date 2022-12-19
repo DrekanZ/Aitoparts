@@ -94,11 +94,12 @@
 
             <TextView
                 android:layout_width="0dp"
+                android:id="@+id/profileNameHome"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
-                android:text="Harry Styles"
+                android:text="username"
                 app:layout_constraintBottom_toTopOf="@+id/guidelineMiddle3"
                 app:layout_constraintEnd_toStartOf="@+id/guidelineMiddle2"
                 app:layout_constraintHorizontal_bias="0.437"

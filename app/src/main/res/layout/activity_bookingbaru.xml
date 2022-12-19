@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".bookingbaru">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@drawable/rounded_rectangle_head"
+        android:backgroundTint="@color/AitopartsTeal"
+        android:textAlignment="gravity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView3"
+            android:layout_width="260dp"
+            android:layout_height="49dp"
+            android:gravity="center"
+            android:text="@string/BookingBaru"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline51"
+            app:layout_constraintEnd_toStartOf="@+id/guideline54"
+            app:layout_constraintStart_toStartOf="@+id/guideline52"
+            app:layout_constraintTop_toTopOf="@+id/guideline50" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/backMainBooking"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline51"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/guideline52"
+            app:layout_constraintStart_toStartOf="@+id/guideline53"
+            app:layout_constraintTop_toTopOf="@+id/guideline50"
+            app:srcCompat="@drawable/ic_back" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="50dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView2"
+        android:layout_width="320dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="kendaraan apa yang ingin diservice?"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/Abu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textkendaraan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Jenis Kendaraan :"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/hasilJeniskendaraan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:hint="Brio 2020"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textkendaraan" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Kapan anda ingin datang ke bengkel?\nJadwal Bengkel"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pilihTanggal"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@color/Abu"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Tanggal :"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/targetTanggal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:hint="DD-MM-YY"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTanggal" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/Abu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilihTanggal">
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/pilihSesiSpiner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Paket Mana Yang Anda Ingin?"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pilihPaket"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/Abu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView4">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/pilihPaketSpiner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/estimasiBiaya"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/Abu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pilihPaket">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonBuatbooking"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="@color/AitopartsTeal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/estimasiBiaya">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="BUAT BOOKING :"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
