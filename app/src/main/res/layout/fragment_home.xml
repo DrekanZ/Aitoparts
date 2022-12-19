@@ -99,6 +99,7 @@
                 android:layout_marginLeft="5dp"
                 android:gravity="center_vertical"
                 android:text="username"
+                android:textColor="@color/white"
                 android:textSize="25sp"
                 app:layout_constraintBottom_toTopOf="@+id/guidelineMiddle3"
                 app:layout_constraintEnd_toStartOf="@+id/guidelineMiddle2"
