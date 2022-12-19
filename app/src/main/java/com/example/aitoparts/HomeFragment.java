@@ -96,6 +96,17 @@ public class HomeFragment extends Fragment {
                 v.getContext().startActivity(intent);
             }
         });
+
+        final ConstraintLayout bookingButton = (ConstraintLayout) view.findViewById(R.id.GoToBookingBaru);
+        bookingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), bookingbaru.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+
         // Inflate the layout for this fragment
         return view;
     }
