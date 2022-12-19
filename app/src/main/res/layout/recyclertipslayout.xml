@@ -22,14 +22,15 @@
                 />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_toRightOf="@id/imageTipsRecycler"
-                android:layout_height="wrap_content"
                 android:id="@+id/textViewTitleRecycler"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/imageTipsRecycler"
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textViewTipsRecycler"
+                android:justificationMode="inter_word"
                 android:layout_width="match_parent"
                 android:layout_below="@id/textViewTitleRecycler"
                 android:layout_toRightOf="@id/imageTipsRecycler"
