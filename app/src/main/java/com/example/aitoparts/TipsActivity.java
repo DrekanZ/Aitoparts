@@ -59,8 +59,6 @@ public class TipsActivity extends AppCompatActivity implements RecyclerTipsInter
 
 
     private void loadTips() {
-
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DbContract.SERVER_LOADTIPS_URL,
                 new Response.Listener<String>() {
                     @Override
