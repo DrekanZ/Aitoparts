@@ -103,7 +103,7 @@ public class Login extends AppCompatActivity {
 
                 }
             }) {
-                @Override
+                @Override 
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     params.put("username", username);
@@ -143,6 +143,8 @@ public class Login extends AppCompatActivity {
 
                                 editor.putBoolean("logged_in",true);
                                 editor.putString("nama",jsonObject.getString("nama"));
+                                editor.putString("user_id",jsonObject.getString("id"));
+
                                 while (!editor.commit())
                                 {
                                     editor.commit();

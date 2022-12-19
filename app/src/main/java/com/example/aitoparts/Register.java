@@ -54,7 +54,6 @@ public class Register extends AppCompatActivity {
         password = (EditText) findViewById(R.id.editTextPasswordRegister);
         confPassword = (EditText) findViewById(R.id.editTextKonfirmasiPasswordRegister);
         noTelp = (EditText) findViewById(R.id.editTextTeleponRegister);
-
         registerButton = (Button) findViewById(R.id.buttonRegister);
         gotoLogin = (TextView) findViewById(R.id.textViewToLogin);
         progressDialog = new ProgressDialog(Register.this);
