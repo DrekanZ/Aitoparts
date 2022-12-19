@@ -34,14 +34,16 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backMainBooking"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_margin="5dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline51"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline52"
             app:layout_constraintStart_toStartOf="@+id/guideline53"
             app:layout_constraintTop_toTopOf="@+id/guideline50"
-            app:srcCompat="@drawable/ic_back" />
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -49,28 +51,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="20dp" />
+            app:layout_constraintGuide_begin="1dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline51"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="50dp" />
+            app:layout_constraintGuide_begin="74dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline52"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.18" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline53"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
+            app:layout_constraintGuide_percent="0.0" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline54"
@@ -87,16 +89,16 @@
         android:id="@+id/appCompatTextView2"
         android:layout_width="320dp"
         android:layout_height="38dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="kendaraan apa yang ingin diservice?"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
