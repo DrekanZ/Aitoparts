@@ -189,8 +189,4 @@ public class Login extends AppCompatActivity {
         NetworkInfo networkinfo = connectivityManager.getActiveNetworkInfo();
         return ((networkinfo != null) && (networkinfo.isConnected()));
     }
-
-
-
-
 }
