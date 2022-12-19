@@ -19,6 +19,7 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".TipsPage"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -43,6 +44,7 @@
         <activity
             android:screenOrientation="portrait"
             android:name=".Register"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
