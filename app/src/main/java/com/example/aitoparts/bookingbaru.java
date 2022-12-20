@@ -31,6 +31,7 @@ import java.util.Locale;
 
 
 
+
 public class bookingbaru extends AppCompatActivity {
 
     //datePicker
@@ -46,6 +47,13 @@ public class bookingbaru extends AppCompatActivity {
 
     // menu back
     ImageView backToMainBooking;
+
+    //butoonsumbit
+    EditText jeniskendaraankirim;
+    TextView tanggalkirim;
+    ConstraintLayout btnbookingbaru;
+    private String KEY_KENDARAAN = "JenisKendaaran";
+    private String KEY_TANGGAL = "Tangal";
 
 
 
@@ -63,6 +71,28 @@ public class bookingbaru extends AppCompatActivity {
                 startActivity(backToMainBooking);
             }
         });
+
+        //button booking baru
+        jeniskendaraankirim = (EditText) findViewById(R.id.hasilJeniskendaraan);
+        tanggalkirim = (TextView) findViewById(R.id.targetTanggal);
+        btnbookingbaru = (ConstraintLayout) findViewById(R.id.buttonBuatbooking);
+        btnbookingbaru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    String jeniskendaraan = jeniskendaraankirim.getText().toString();
+                    {Intent kirimjenisK = new Intent(bookingbaru.this, bookingdibuat.class);
+                    kirimjenisK.putExtra(KEY_KENDARAAN, jeniskendaraan);
+                    startActivity(kirimjenisK);}
+
+                    String tanggal = tanggalkirim.getText().toString();
+                    {Intent tanggal123 = new Intent(bookingbaru.this, bookingdibuat.class);
+                    tanggal123.putExtra(KEY_TANGGAL,tanggal);
+                    startActivity(tanggal123);}
+
+            }
+        });
+
 
 
         //spinner

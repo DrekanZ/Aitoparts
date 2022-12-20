@@ -34,14 +34,14 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/backMainBooking"
-            android:layout_width="20dp"
+            android:layout_width="40dp"
             android:layout_height="30dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline51"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline52"
             app:layout_constraintStart_toStartOf="@+id/guideline53"
             app:layout_constraintTop_toTopOf="@+id/guideline50"
-            app:srcCompat="@drawable/ic_back" />
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
 
         <androidx.constraintlayout.widget.Guideline
