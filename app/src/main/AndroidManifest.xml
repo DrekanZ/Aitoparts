@@ -42,7 +42,6 @@
         </activity>
         <activity
             android:name=".Register"
-            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
