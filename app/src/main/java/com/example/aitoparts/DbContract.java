@@ -7,4 +7,5 @@ public class DbContract {
     public static final String SERVER_LOADTIPS_URL="https://aitoparts.galariks.my.id/mobileAPI/loadTips.php";
     public static final String SERVER_LOADTIPSPAGE_URL="https://aitoparts.galariks.my.id/mobileAPI/loadTipsPage.php";
     public static final String SERVER_GETUSERCRED_URL="https://aitoparts.galariks.my.id/mobileAPI/getUsername.php";
+    public static final String SERVER_LOADBOOK_URL="https://aitoparts.galariks.my.id/mobileAPI/loadBook.php";
 }
