@@ -46,7 +46,7 @@ public class bookingbaru extends AppCompatActivity {
     public Spinner sp2;
 
     // menu back
-    ImageView backToMainBooking;
+    ConstraintLayout backToMainBooking;
 
     //butoonsumbit
     EditText jeniskendaraankirim;
@@ -63,7 +63,7 @@ public class bookingbaru extends AppCompatActivity {
         setContentView(R.layout.activity_bookingbaru);
 
         // back
-        backToMainBooking = (ImageView) findViewById(R.id.backMainBooking);
+        backToMainBooking = (ConstraintLayout) findViewById(R.id.backMainBooking);
         backToMainBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

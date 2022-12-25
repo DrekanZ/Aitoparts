@@ -19,11 +19,10 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginRight="130dp"
             android:autoSizeTextType="uniform"
             android:textColor="@color/white"
             android:padding="5dp"
-            android:text="Spareparts"
+            android:text="@string/SpareParts"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/partsBackButton"

@@ -189,6 +189,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline32"
                 app:layout_constraintEnd_toStartOf="@+id/guideline33"
                 app:layout_constraintStart_toStartOf="@+id/guideline35"
