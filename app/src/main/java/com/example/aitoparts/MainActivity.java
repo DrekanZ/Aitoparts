@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
 
     @Override
     public void onItemClick(View view, int position) {
-        bookFragment = (BookFragment) getSupportFragmentManager().findFragmentById(R.id.recyclerBook);
         String text = bookList.get(position).getMobil();
         Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
     }
