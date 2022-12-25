@@ -1,5 +1,5 @@
 package com.example.aitoparts;
 
-public interface RecyclerTipsInterface {
+public interface RecyclerClickInterface {
     void onItemClick(int position);
 }

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,7 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TipsActivity extends AppCompatActivity implements RecyclerTipsInterface {
+public class TipsActivity extends AppCompatActivity implements RecyclerClickInterface {
 
     ConstraintLayout backButtonTips;
     RecyclerView recyclerView;

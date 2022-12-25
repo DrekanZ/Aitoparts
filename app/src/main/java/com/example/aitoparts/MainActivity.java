@@ -1,18 +1,23 @@
 package com.example.aitoparts;
 
+import static com.example.aitoparts.BookFragment.bookList;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.aitoparts.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BookFragment.OnItemClickListener {
 
     ActivityMainBinding binding;
-
+    BookFragment bookFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
-
-        BookFragment bookFragment = new BookFragment();
+        bookFragment = new BookFragment();
         HomeFragment homeFragment = new HomeFragment();
         ProfileFragment profileFragment = new ProfileFragment();
+
         binding.bottomNavigationView.setSelectedItemId(R.id.home);
         binding.bottomNavigationView.setOnItemSelectedListener(item ->{
 
@@ -41,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                         return true;
     });
+
+
+        bookFragment.setOnItemClickListener(this);
     }
 
     private void replaceFragment(Fragment fragment)
@@ -49,5 +57,12 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout,fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        bookFragment = (BookFragment) getSupportFragmentManager().findFragmentById(R.id.recyclerBook);
+        String text = bookList.get(position).getMobil();
+        Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
     }
 }

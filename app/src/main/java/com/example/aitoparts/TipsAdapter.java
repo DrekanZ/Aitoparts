@@ -15,12 +15,12 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder> {
-    private final RecyclerTipsInterface recyclerTipsInterface;
+    private final RecyclerClickInterface recyclerTipsInterface;
 
     private Context mCtx;
     private List<Tips> tipsList;
 
-    public TipsAdapter(Context mCtx, List<Tips> tipsList, RecyclerTipsInterface recyclerTipsInterface) {
+    public TipsAdapter(Context mCtx, List<Tips> tipsList, RecyclerClickInterface recyclerTipsInterface) {
         this.mCtx = mCtx;
         this.tipsList = tipsList;
         this.recyclerTipsInterface = recyclerTipsInterface;
@@ -55,7 +55,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder
         ImageView imageView;
         TextView textView, textViewTitle;
 
-        public TipsViewHolder(View itemView, RecyclerTipsInterface recyclerTipsInterface) {
+        public TipsViewHolder(View itemView, RecyclerClickInterface recyclerTipsInterface) {
             super(itemView);
 
             imageView = (ImageView) itemView.findViewById(R.id.imageTipsRecycler);

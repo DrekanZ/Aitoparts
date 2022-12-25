@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -41,6 +42,21 @@ import java.util.Map;
 public class BookFragment extends Fragment {
 
 
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+        onItemClickListener = listener;
+    }
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -49,8 +65,9 @@ public class BookFragment extends Fragment {
     private String mParam2;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private ArrayList<Book> bookList;
+    public static ArrayList<Book> bookList;
     private RecyclerView recyclerView;
+//    private RecyclerClickInterface recyclerClickInterface;
 
     public BookFragment() {
         // Required empty public constructor
@@ -88,6 +105,7 @@ public class BookFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book,container,false);
         // Inflate the layout for this fragment
+        recyclerView = view.findViewById(R.id.recyclerBook);
         return view;
     }
 
@@ -102,7 +120,6 @@ public class BookFragment extends Fragment {
         loadBook(sharedPreferences.getString("user_id","fail"));
 
 
-        recyclerView = view.findViewById(R.id.recyclerBook);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
 
@@ -140,7 +157,7 @@ public class BookFragment extends Fragment {
                                         ));
                             }
 
-                            BookAdapter bookAdapter = new BookAdapter(getContext(),bookList);
+                            BookAdapter bookAdapter = new BookAdapter(getContext(),bookList,onItemClickListener);
                             recyclerView.setAdapter(bookAdapter);
                             bookAdapter.notifyDataSetChanged();
 
@@ -167,5 +184,8 @@ public class BookFragment extends Fragment {
         };
         Volley.newRequestQueue(getContext()).add(stringRequest);
     }
+
+
+
 
 }
