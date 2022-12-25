@@ -62,11 +62,8 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
 
     @Override
     public void onItemClick(View view, int position) {
-        String text = bookList.get(position).getMobil();
         Intent intent = new Intent(MainActivity.this,BookDetails.class);
         intent.putExtra("position",String.valueOf(position));
         startActivity(intent);
-
-        Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
     }
 }

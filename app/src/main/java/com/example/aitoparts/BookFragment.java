@@ -115,7 +115,6 @@ public class BookFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("loginSession", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-//        Toast.makeText(view.getContext(), sharedPreferences.getString("user_id","tes"), Toast.LENGTH_SHORT).show();
 
         loadBook(sharedPreferences.getString("user_id","fail"));
 
