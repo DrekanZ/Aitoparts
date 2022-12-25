@@ -3,22 +3,25 @@ package com.example.aitoparts;
 import static com.example.aitoparts.BookFragment.bookList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class BookDetails extends AppCompatActivity {
 
     TextView textViewNomor, textViewNama, textViewKendaraan, textViewTanggal, textViewJam, textViewMontir;
-
+    ConstraintLayout bookDetailsBackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
 
+        bookDetailsBackButton = (ConstraintLayout) findViewById(R.id.bookDetailsBackButton);
         textViewNomor = (TextView) findViewById(R.id.bookDetailsNomor);
         textViewNama = (TextView) findViewById(R.id.bookDetailsNama);
         textViewKendaraan = (TextView) findViewById(R.id.bookDetailsKendaraan);
@@ -35,5 +38,13 @@ public class BookDetails extends AppCompatActivity {
         textViewTanggal.setText(bookList.get(position).getTanggal());
         textViewJam.setText(bookList.get(position).getJam());
         textViewMontir.setText(bookList.get(position).getNamaMontir());
+
+        bookDetailsBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BookDetails.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
