@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -38,10 +41,13 @@ import java.util.Map;
 
 public class BookingBaru extends AppCompatActivity {
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     //datePicker
     Calendar myCalendar;
     DatePickerDialog.OnDateSetListener date;
-
+    int freeMekanik;
     ConstraintLayout pilihTanggal;
 
 
@@ -52,6 +58,8 @@ public class BookingBaru extends AppCompatActivity {
     // menu back
     ConstraintLayout backToMainBooking;
 
+    boolean initDate;
+    String sendDate, sendKendaraan, sendIdMekanik, sendIdPelanggan, sendIdSesi,sendIdPaket;
     //butoonsumbit
     EditText jeniskendaraankirim;
     TextView tanggalkirim, biaya;
@@ -68,7 +76,10 @@ public class BookingBaru extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookingbaru);
+        initDate = false;
 
+        sharedPreferences = getSharedPreferences("loginSession",MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
 
         // back
@@ -90,16 +101,14 @@ public class BookingBaru extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    String jeniskendaraan = jeniskendaraankirim.getText().toString();
-                    {Intent kirimjenisK = new Intent(BookingBaru.this, BookingDibuat.class);
-                    kirimjenisK.putExtra(KEY_KENDARAAN, jeniskendaraan);
-                    startActivity(kirimjenisK);}
-
-                    String tanggal = tanggalkirim.getText().toString();
-                    {Intent tanggal123 = new Intent(BookingBaru.this, BookingDibuat.class);
-                    tanggal123.putExtra(KEY_TANGGAL,tanggal);
-                    startActivity(tanggal123);}
-
+                if (jeniskendaraankirim.getText() != null && initDate ==true)
+                {
+                    getFreeMekanikId(sendDate, String.valueOf(getSesiId(sp1.getSelectedItem().toString())));
+                }
+                else
+                {
+                    Toast.makeText(BookingBaru.this, "Tolong masukan semua kolom", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -121,7 +130,7 @@ public class BookingBaru extends AppCompatActivity {
         sp2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                biaya.setText("Rp. " + getHarga(sp2.getSelectedItem().toString()) + "000");
+                biaya.setText("Rp. " + getPaketHarga(sp2.getSelectedItem().toString()) + "000");
             }
 
             @Override
@@ -155,6 +164,8 @@ public class BookingBaru extends AppCompatActivity {
                     String myFormat = "dd-MMMM-yyyy";
                     SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                     tanggal.setText(sdf.format(myCalendar.getTime()));
+                    sendDate = year + "-" + (monthOfYear+1) + "-" + dayOfMonth;
+                    initDate = true;
                 }
             }
         };
@@ -255,7 +266,7 @@ public class BookingBaru extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-    private String getHarga(String nama)
+    private String getPaketHarga(String nama)
     {
         String result ="";
 
@@ -267,6 +278,121 @@ public class BookingBaru extends AppCompatActivity {
         }
         return result;
     }
+
+    private String getPaketId(String nama)
+    {
+        String result ="";
+
+        for (Paket paket : paketList) {
+            if (paket.getNamaPaket().equals(nama)) {
+                result = paket.getId();
+                break;
+            }
+        }
+        return result;
+    }
+
+    private int getSesiId(String nama)
+    {
+        String result ="";
+
+        for (Sesi sesi : sesiList) {
+            if (sesi.getJam().equals(nama)) {
+                result = sesi.getId();
+                break;
+            }
+        }
+        return Integer.parseInt(result);
+    }
+
+
+    private void getFreeMekanikId(final String tanggal, final String id_sesi) {
+        StringRequest request = new StringRequest(Request.Method.POST, DbContract.SERVER_GETMEKANIK_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray array = new JSONArray(response);
+
+                    if (array.length() > 0)
+                    {
+                        JSONObject object = array.getJSONObject(0);
+                        freeMekanik = object.getInt("id");
+                        setSendStrings();
+                        bookingBaru(sendKendaraan,sendDate,sendIdSesi,sendIdPaket,sendIdPelanggan,sendIdMekanik);
+                    } else {
+                        Toast.makeText(BookingBaru.this, "Tidak ada Mekanik Tersedia.\nSilakan Pilih Sesi atau Tanggal lain", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    // Error handling
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Error handling
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_sesi", id_sesi);
+                params.put("tanggal", tanggal);
+                return params;
+            }
+        };
+
+        Volley.newRequestQueue(this).add(request);
+    }
+
+    private void bookingBaru(final String kendaraan, final String tanggal, final String id_sesi, final String id_paket, final String id_pelanggan, final String id_mekanik) {
+        StringRequest request = new StringRequest(Request.Method.POST, DbContract.SERVER_BOOKINGBARU_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    int id = jsonObject.getInt("id");
+
+                    Intent intent = new Intent(BookingBaru.this,BookingDibuat.class);
+                    intent.putExtra("booking_id",String.valueOf(id));
+                    BookingBaru.this.finish();
+                    startActivity(intent);
+                    Toast.makeText(BookingBaru.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Error handling
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_sesi", id_sesi);
+                params.put("tanggal", tanggal);
+                params.put("kendaraan", kendaraan);
+                params.put("id_paket", id_paket);
+                params.put("id_pelanggan", id_pelanggan);
+                params.put("id_mekanik", id_mekanik);
+                return params;
+            }
+        };
+
+        Volley.newRequestQueue(this).add(request);
+    }
+
+    private void setSendStrings()
+    {
+        sendIdMekanik =  String.valueOf(freeMekanik);
+        sendIdPaket = getPaketId(sp2.getSelectedItem().toString());
+        sendIdPelanggan = sharedPreferences.getString("user_id","0");
+        sendIdSesi = String.valueOf(getSesiId(sp1.getSelectedItem().toString()));
+        sendKendaraan = jeniskendaraankirim.getText().toString();
+    }
+
 }
 
 

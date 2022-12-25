@@ -70,6 +70,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent toRegister = new Intent(Login.this, Register.class);
                 startActivity(toRegister);
+                Login.this.finish();
             }
         });
 
@@ -152,6 +153,7 @@ public class Login extends AppCompatActivity {
                                 }
                                 Intent loginIntent = new Intent(Login.this, MainActivity.class);
                                 startActivity(loginIntent);
+                                Login.this.finish();
 //                                loginUsername.setText(jsonObject.getString("nama"));
 //                                Toast.makeText(Login.this, jsonObject.getString("nama"), Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
