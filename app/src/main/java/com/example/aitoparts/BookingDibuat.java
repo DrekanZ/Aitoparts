@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-    public class bookingdibuat extends AppCompatActivity {
+    public class BookingDibuat extends AppCompatActivity {
 
 
         // menu back

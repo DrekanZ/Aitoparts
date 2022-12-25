@@ -7,22 +7,12 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ArrayAdapter;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.AdapterView;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.view.View.OnClickListener;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -32,7 +22,7 @@ import java.util.Locale;
 
 
 
-public class bookingbaru extends AppCompatActivity {
+public class BookingBaru extends AppCompatActivity {
 
     //datePicker
     Calendar myCalendar;
@@ -81,12 +71,12 @@ public class bookingbaru extends AppCompatActivity {
             public void onClick(View v) {
 
                     String jeniskendaraan = jeniskendaraankirim.getText().toString();
-                    {Intent kirimjenisK = new Intent(bookingbaru.this, bookingdibuat.class);
+                    {Intent kirimjenisK = new Intent(BookingBaru.this, BookingDibuat.class);
                     kirimjenisK.putExtra(KEY_KENDARAAN, jeniskendaraan);
                     startActivity(kirimjenisK);}
 
                     String tanggal = tanggalkirim.getText().toString();
-                    {Intent tanggal123 = new Intent(bookingbaru.this, bookingdibuat.class);
+                    {Intent tanggal123 = new Intent(BookingBaru.this, BookingDibuat.class);
                     tanggal123.putExtra(KEY_TANGGAL,tanggal);
                     startActivity(tanggal123);}
 
@@ -106,7 +96,7 @@ public class bookingbaru extends AppCompatActivity {
         itemSesi.add("Sesi 3");
         itemSesi.add("Sesi 4");
 
-        ArrayAdapter<String> adapterSesi = new ArrayAdapter<String>(bookingbaru.this,android.R.layout.simple_spinner_dropdown_item, itemSesi);
+        ArrayAdapter<String> adapterSesi = new ArrayAdapter<String>(BookingBaru.this,android.R.layout.simple_spinner_dropdown_item, itemSesi);
         adapterSesi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp1.setAdapter(adapterSesi);
 
@@ -119,7 +109,7 @@ public class bookingbaru extends AppCompatActivity {
         itemPaket.add("10.000 + KM");
 
 
-        ArrayAdapter<String> adapterPaket = new ArrayAdapter<String>(bookingbaru.this,android.R.layout.simple_spinner_dropdown_item, itemPaket);
+        ArrayAdapter<String> adapterPaket = new ArrayAdapter<String>(BookingBaru.this,android.R.layout.simple_spinner_dropdown_item, itemPaket);
         adapterPaket.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp2.setAdapter(adapterPaket);
 
@@ -147,7 +137,7 @@ public class bookingbaru extends AppCompatActivity {
         pilihTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DatePickerDialog(bookingbaru.this, date,
+                new DatePickerDialog(BookingBaru.this, date,
                         myCalendar.get(Calendar.YEAR),
                         myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();

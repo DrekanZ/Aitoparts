@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment {
         bookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), bookingbaru.class);
+                Intent intent = new Intent(v.getContext(), BookingBaru.class);
                 v.getContext().startActivity(intent);
             }
         });
