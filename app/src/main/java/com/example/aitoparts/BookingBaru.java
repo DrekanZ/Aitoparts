@@ -135,11 +135,9 @@ public class BookingBaru extends AppCompatActivity {
 
 
 
-
-        //Pilih Tanggal
+        myCalendar = Calendar.getInstance();
         pilihTanggal = findViewById(R.id.pilihTanggal);
 
-        myCalendar = Calendar.getInstance();
         date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
@@ -147,10 +145,17 @@ public class BookingBaru extends AppCompatActivity {
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                TextView tanggal = findViewById(R.id.targetTanggal);
-                String myFormat = "dd-MMMM-yyyy";
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-                tanggal.setText(sdf.format(myCalendar.getTime()));
+                if (myCalendar.before(Calendar.getInstance()))
+                {
+                    Toast.makeText(BookingBaru.this, "Tidak bisa booking ke masa lalu", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    TextView tanggal = findViewById(R.id.targetTanggal);
+                    String myFormat = "dd-MMMM-yyyy";
+                    SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                    tanggal.setText(sdf.format(myCalendar.getTime()));
+                }
             }
         };
 
