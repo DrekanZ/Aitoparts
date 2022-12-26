@@ -18,13 +18,15 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
             android:id="@+id/textInputUsername"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_baseline_person_24"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_horizontal"
-            android:hint="@string/username">
+            android:hint="@string/username"
+            android:textSize="15sp">
 
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -47,7 +49,9 @@
             android:background="@drawable/rounded_edittext"
             android:drawableStart="@drawable/ic_password"
             android:gravity="center_horizontal"
-            android:hint="@string/password">
+            android:hint="@string/password"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_medium">
 
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -59,8 +63,9 @@
         android:layout_height="0dp"
         android:background="@drawable/rounded_edittext"
         android:text="Masuk"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
         android:padding="10dp"
-        android:autoSizeTextType="uniform"
         android:theme="@style/Theme.Aitoparts"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHeight_percent="0.08"
@@ -72,9 +77,10 @@
         android:id="@+id/textMasuk"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
         android:text="Masuk"
+        android:textSize="30sp"
         app:layout_constraintDimensionRatio="3:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHeight_percent="0.1"
@@ -99,6 +105,8 @@
         android:layout_height="0dp"
         android:autoSizeTextType="uniform"
         android:text="@string/toRegister"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintHorizontal_bias="0.09"

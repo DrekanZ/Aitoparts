@@ -97,10 +97,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center_vertical"
                 android:text="username"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toTopOf="@+id/guidelineMiddle3"
                 app:layout_constraintEnd_toStartOf="@+id/guidelineMiddle2"
                 app:layout_constraintHorizontal_bias="0.437"
@@ -112,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.2"/>
+                app:layout_constraintGuide_percent="0.2" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineMiddle3"
@@ -176,8 +177,9 @@
             android:id="@+id/GoToBookingBaru"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/hijau"
             app:layout_constraintBottom_toTopOf="@+id/guidelineIn2"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/GoToJanjiSaya"
@@ -189,11 +191,14 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_margin="5dp"
                 android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline32"
                 app:layout_constraintEnd_toStartOf="@+id/guideline33"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline35"
                 app:layout_constraintTop_toTopOf="@+id/guideline34"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/bukingbaru" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -230,9 +235,10 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:text="@string/BookingBaru"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@id/GoToBookingBaru"
             app:layout_constraintStart_toStartOf="@id/GoToBookingBaru"
             app:layout_constraintTop_toBottomOf="@id/GoToBookingBaru" />
@@ -240,9 +246,10 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/JanjiSaya"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center"
-            android:textSize="20sp"
+            android:text="@string/JanjiSaya"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@id/GoToJanjiSaya"
             app:layout_constraintStart_toStartOf="@id/GoToJanjiSaya"
             app:layout_constraintTop_toBottomOf="@id/GoToJanjiSaya" />
@@ -250,9 +257,10 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:text="@string/SpareParts"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@id/GoToSpareParts"
             app:layout_constraintStart_toStartOf="@id/GoToSpareParts"
             app:layout_constraintTop_toBottomOf="@id/GoToSpareParts" />
@@ -260,20 +268,22 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center"
             android:text="@string/TipsPerawatan"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@id/GoToTipsPerawatan"
             app:layout_constraintStart_toStartOf="@id/GoToTipsPerawatan"
-            app:layout_constraintTop_toBottomOf="@id/GoToTipsPerawatan"/>
+            app:layout_constraintTop_toBottomOf="@id/GoToTipsPerawatan" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/GoToJanjiSaya"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/hijau"
             app:layout_constraintBottom_toTopOf="@+id/guidelineIn2"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -284,6 +294,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_margin="5dp"
                 android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline38"
                 app:layout_constraintEnd_toStartOf="@+id/guideline37"
@@ -326,8 +337,9 @@
             android:id="@+id/GoToSpareParts"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/hijau"
             app:layout_constraintBottom_toTopOf="@+id/guidelineIn4"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/GoToTipsPerawatan"
@@ -335,16 +347,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guidelineIn3">
 
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_margin="5dp"
                 android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline40"
                 app:layout_constraintEnd_toStartOf="@+id/guideline41"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline43"
                 app:layout_constraintTop_toTopOf="@+id/guideline42"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/gear" />
-
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline42"
@@ -379,8 +394,9 @@
             android:id="@+id/GoToTipsPerawatan"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_margin="5dp"
             android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/hijau"
             app:layout_constraintBottom_toTopOf="@+id/guidelineIn4"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -391,6 +407,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:layout_margin="5dp"
                 android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline44"
                 app:layout_constraintEnd_toStartOf="@+id/guideline45"

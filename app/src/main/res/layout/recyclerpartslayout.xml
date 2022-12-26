@@ -29,16 +29,16 @@
                     />
 
 
-
                 <TextView
+                    android:id="@+id/textViewTitleParts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="-1dp"
                     android:layout_toEndOf="@id/imageViewParts"
-                    android:id="@+id/textViewTitleParts"
-                    android:textSize="20sp"
                     android:text="Title"
                     android:textColor="@color/black"
-                    />
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_medium"/>
 
                 <TextView
                     android:id="@+id/textViewPrice"
@@ -47,7 +47,8 @@
                     android:layout_toRightOf="@id/imageViewParts"
                     android:layout_below="@id/textViewTitleParts"
                     android:text="Price"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/poppins_medium"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="#000000"
                     />
@@ -60,7 +61,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:id="@+id/stocktext"
-                android:textSize="20sp"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content"
                 android:layout_toStartOf="@id/stockValue"
@@ -72,7 +74,8 @@
                 android:id="@+id/stockValue"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="20sp"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_marginRight="20dp"
                 android:textAlignment="textStart"
                 android:layout_marginBottom="10dp"

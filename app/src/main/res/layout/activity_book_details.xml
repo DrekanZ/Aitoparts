@@ -22,6 +22,7 @@
             android:autoSizeTextType="uniform"
             android:padding="5dp"
             android:text="@string/TipsPerawatan"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +108,7 @@
             android:text="No.Booking    "
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,6 +121,7 @@
             android:text="Nama   "
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6" />
 
@@ -131,6 +134,7 @@
             android:text="Kendaraan   "
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
 
@@ -143,6 +147,7 @@
             android:text="Tanggal   "
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8" />
 
@@ -155,6 +160,7 @@
             android:text="Jam   "
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView9" />
 
@@ -167,6 +173,7 @@
             android:text="Montir"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView10" />
 
@@ -179,6 +186,7 @@
             android:text="number"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,6 +199,7 @@
             android:text="Nama"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsNomor" />
 
@@ -203,6 +212,7 @@
             android:text="brio 2020"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsNama" />
 
@@ -215,6 +225,7 @@
             android:text="20 - 10 - 2020"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsKendaraan" />
 
@@ -227,6 +238,7 @@
             android:text="13.30 "
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsTanggal" />
 
@@ -239,6 +251,7 @@
             android:text="julpan"
             android:textColor="@color/black"
             android:textSize="15dp"
+            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
             app:layout_constraintTop_toBottomOf="@+id/bookDetailsJam" />
 

@@ -30,12 +30,14 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textViewTipsRecycler"
+                android:textSize="13dp"
+                android:fontFamily="@font/poppins_medium"
                 android:layout_width="match_parent"
-                android:layout_below="@id/textViewTitleRecycler"
-                android:layout_toRightOf="@id/imageTipsRecycler"
-                android:layout_marginLeft="5dp"
                 android:layout_height="match_parent"
-                />
+                android:layout_below="@id/textViewTitleRecycler"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/imageTipsRecycler" />
 
         </RelativeLayout>
 
