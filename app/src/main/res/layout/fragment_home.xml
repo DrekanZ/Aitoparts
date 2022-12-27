@@ -12,6 +12,7 @@
         android:background="@color/F5F5F5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout9"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/rounded_rectangle_head"
@@ -164,33 +165,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.6" />
+            app:layout_constraintGuide_percent="0.77" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineIn4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
+            app:layout_constraintGuide_percent="0.95" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/GoToBookingBaru"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="@color/hijau"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineIn2"
+            app:layout_constraintBottom_toTopOf="@+id/GoToSpareParts"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@+id/GoToJanjiSaya"
+            app:layout_constraintEnd_toStartOf="@+id/GoToRiwayat"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelineIn1">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
 
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="130dp"
+                android:layout_height="132dp"
                 android:layout_margin="5dp"
                 android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline32"
@@ -250,11 +252,12 @@
             android:gravity="center"
             android:text="@string/JanjiSaya"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@id/GoToJanjiSaya"
-            app:layout_constraintStart_toStartOf="@id/GoToJanjiSaya"
-            app:layout_constraintTop_toBottomOf="@id/GoToJanjiSaya" />
+            app:layout_constraintEnd_toEndOf="@id/GoToRiwayat"
+            app:layout_constraintStart_toStartOf="@id/GoToRiwayat"
+            app:layout_constraintTop_toBottomOf="@id/GoToRiwayat" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -266,6 +269,7 @@
             app:layout_constraintTop_toBottomOf="@id/GoToSpareParts" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView14"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
@@ -278,18 +282,19 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/GoToJanjiSaya"
+            android:id="@+id/GoToRiwayat"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="@color/hijau"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineIn2"
+            app:layout_constraintBottom_toTopOf="@+id/GoToTipsPerawatan"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/GoToBookingBaru"
-            app:layout_constraintTop_toTopOf="@+id/guidelineIn1">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
@@ -337,15 +342,16 @@
             android:id="@+id/GoToSpareParts"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="15dp"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="@color/hijau"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineIn4"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/GoToTipsPerawatan"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelineIn3">
+            app:layout_constraintTop_toBottomOf="@+id/GoToBookingBaru">
 
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -394,15 +400,16 @@
             android:id="@+id/GoToTipsPerawatan"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/rounded_rectangle"
             android:backgroundTint="@color/hijau"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineIn4"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/GoToSpareParts"
-            app:layout_constraintTop_toTopOf="@+id/guidelineIn3">
+            app:layout_constraintTop_toBottomOf="@+id/GoToRiwayat">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
