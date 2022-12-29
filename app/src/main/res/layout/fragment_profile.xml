@@ -50,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Harry Styles"
+            android:textColor="@color/black"
             android:textSize="15sp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintBottom_toTopOf="@+id/guideline50"
@@ -124,9 +125,11 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Pengaturan"
-            android:textSize="15dp"
             android:fontFamily="@font/poppins_semibold"
+            android:gravity="left|top"
+            android:text="Pengaturan"
+            android:textColor="@color/black"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline59"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
@@ -135,13 +138,16 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:drawablePadding="10dp"
+            android:textColor="@color/black"
+            app:drawableTint="@color/black"
+            android:gravity="left|center_vertical"
             android:drawableStart="@drawable/ic_notification"
             android:fontFamily="@font/poppins_medium"
             android:text="Notifikasi"
-            android:textSize="15dp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline58"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
             app:layout_constraintTop_toTopOf="@+id/guideline60"
             app:layout_constraintVertical_bias="1.0" />
@@ -156,9 +162,12 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:drawablePadding="10dp"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/black"
             android:drawableStart="@drawable/ic_info"
             android:text="Tentang"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintBottom_toTopOf="@+id/guideline61"
             app:layout_constraintEnd_toEndOf="parent"
@@ -178,7 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.39" />
+            app:layout_constraintGuide_percent="0.4"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline63"

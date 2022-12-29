@@ -43,6 +43,7 @@ public class BookDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BookDetails.this,MainActivity.class);
+                intent.putExtra("toBook",true);
                 startActivity(intent);
             }
         });

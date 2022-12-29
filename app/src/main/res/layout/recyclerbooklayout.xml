@@ -42,6 +42,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginVertical="5dp"
                     android:text="Details"
+                    android:textSize="20sp"
 
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"

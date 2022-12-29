@@ -27,11 +27,17 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
+        binding.bottomNavigationView.setSelectedItemId(R.id.home);
         bookFragment = new BookFragment();
         HomeFragment homeFragment = new HomeFragment();
         ProfileFragment profileFragment = new ProfileFragment();
 
-        binding.bottomNavigationView.setSelectedItemId(R.id.home);
+        if (getIntent().getBooleanExtra("toBook",false))
+        {
+            replaceFragment(bookFragment);
+            binding.bottomNavigationView.setSelectedItemId(R.id.booking);
+        }
+
         binding.bottomNavigationView.setOnItemSelectedListener(item ->{
 
                 switch (item.getItemId()) {

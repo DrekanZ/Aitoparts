@@ -46,7 +46,7 @@ public class RiwayatDetails extends AppCompatActivity {
         riwayatDetailsBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RiwayatDetails.this,MainActivity.class);
+                Intent intent = new Intent(RiwayatDetails.this,Riwayat.class);
                 startActivity(intent);
             }
         });
