@@ -15,8 +15,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder> {
-    private final RecyclerClickInterface recyclerTipsInterface;
 
+    private final RecyclerClickInterface recyclerTipsInterface;
     private Context mCtx;
     private List<Tips> tipsList;
 

@@ -13,5 +13,5 @@ public class DbContract {
     public static final String SERVER_GETMEKANIK_URL="https://aitoparts.galariks.my.id/mobileAPI/getMekanik.php";
     public static final String SERVER_BOOKINGBARU_URL="https://aitoparts.galariks.my.id/mobileAPI/bookingBaru.php";
     public static final String SERVER_BOOKINGSUCCESS_URL="https://aitoparts.galariks.my.id/mobileAPI/bookingBaruSuccess.php";
-
+    public static final String SERVER_LOADRIWAYAT_URL="https://aitoparts.galariks.my.id/mobileAPI/loadHistory.php";
 }

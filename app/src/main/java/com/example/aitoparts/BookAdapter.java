@@ -58,12 +58,19 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             textView = itemView.findViewById(R.id.textViewBookMessage);
             buttonDetails = itemView.findViewById(R.id.buttonBookDetails);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            buttonDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     onItemClickListener.onItemClick(v,getAdapterPosition());
                 }
             });
+
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onItemClickListener.onItemClick(v,getAdapterPosition());
+//                }
+//            });
         }
     }
 }

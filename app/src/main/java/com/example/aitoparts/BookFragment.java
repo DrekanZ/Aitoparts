@@ -67,7 +67,6 @@ public class BookFragment extends Fragment {
     private SharedPreferences.Editor editor;
     public static ArrayList<Book> bookList;
     private RecyclerView recyclerView;
-//    private RecyclerClickInterface recyclerClickInterface;
 
     public BookFragment() {
         // Required empty public constructor
@@ -159,10 +158,6 @@ public class BookFragment extends Fragment {
                             BookAdapter bookAdapter = new BookAdapter(getContext(),bookList,onItemClickListener);
                             recyclerView.setAdapter(bookAdapter);
                             bookAdapter.notifyDataSetChanged();
-
-
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

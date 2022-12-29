@@ -76,6 +76,15 @@ public class HomeFragment extends Fragment {
 
         profileName.setText(sharedPreferences.getString("nama","error loading username"));
 
+        final ConstraintLayout riwayatButton = (ConstraintLayout) view.findViewById(R.id.GoToRiwayat);
+        riwayatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Riwayat.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
         final ConstraintLayout tipsButton = (ConstraintLayout) view.findViewById(R.id.GoToTipsPerawatan);
         tipsButton.setOnClickListener(new View.OnClickListener() {
             @Override
