@@ -56,6 +56,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
             textView = (TextView) itemView.findViewById(R.id.textViewBookMessage);
             detailsButton = (ConstraintLayout) itemView.findViewById(R.id.buttonBookDetails);
 
+            detailsButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (recyclerTipsInterface != null)
+                    {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION)
+                        {
+                            recyclerTipsInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

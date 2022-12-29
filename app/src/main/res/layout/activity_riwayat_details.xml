@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".BookDetails">
+    tools:context=".RiwayatDetails">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -21,16 +21,16 @@
             android:layout_height="0dp"
             android:autoSizeTextType="uniform"
             android:padding="5dp"
-            android:text="Detil Booking"
+            android:text="Detil Riwayat riwayating"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/bookDetailsBackButton"
+            app:layout_constraintStart_toEndOf="@id/riwayatDetailsBackButton"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bookDetailsBackButton"
+            android:id="@+id/riwayatDetailsBackButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
@@ -59,7 +59,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineBook1"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineriwayat1"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline78"
         app:layout_constraintStart_toStartOf="@+id/guideline77"
@@ -69,7 +69,7 @@
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guidelineBook1"
+        android:id="@+id/guidelineriwayat1"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.45"
         />
@@ -81,35 +81,35 @@
         android:outlineAmbientShadowColor="@color/black"
         android:background="@drawable/rounded_rectangle_down"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guidelineBook1"
+        app:layout_constraintTop_toTopOf="@id/guidelineriwayat1"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/guidelineBookKiri"
+            android:id="@+id/guidelineriwayatKiri"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/guidelineBookKanan"
+            android:id="@+id/guidelineriwayatKanan"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.85"/>
-        
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center_vertical"
-            android:text="No.Booking    "
+            android:text="No.riwayating    "
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
+            app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -122,7 +122,7 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
+            app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -135,7 +135,7 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
+            app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -148,7 +148,7 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
+            app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -161,7 +161,7 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
+            app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView9" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -174,11 +174,11 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintStart_toStartOf="@+id/guidelineBookKiri"
+            app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView10" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bookDetailsNomor"
+            android:id="@+id/riwayatDetailsNomor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -187,11 +187,11 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bookDetailsNama"
+            android:id="@+id/riwayatDetailsNama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -200,11 +200,11 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
-            app:layout_constraintTop_toBottomOf="@+id/bookDetailsNomor" />
+            app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsNomor" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bookDetailsKendaraan"
+            android:id="@+id/riwayatDetailsKendaraan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -213,11 +213,11 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
-            app:layout_constraintTop_toBottomOf="@+id/bookDetailsNama" />
+            app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsNama" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bookDetailsTanggal"
+            android:id="@+id/riwayatDetailsTanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -226,11 +226,11 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
-            app:layout_constraintTop_toBottomOf="@+id/bookDetailsKendaraan" />
+            app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsKendaraan" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bookDetailsJam"
+            android:id="@+id/riwayatDetailsJam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -239,11 +239,11 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
-            app:layout_constraintTop_toBottomOf="@+id/bookDetailsTanggal" />
+            app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsTanggal" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bookDetailsMontir"
+            android:id="@+id/riwayatDetailsMontir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -252,8 +252,8 @@
             android:textColor="@color/black"
             android:textSize="15dp"
             android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineBookKanan"
-            app:layout_constraintTop_toBottomOf="@+id/bookDetailsJam" />
+            app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsJam" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

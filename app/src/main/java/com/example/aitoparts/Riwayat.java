@@ -1,11 +1,15 @@
 package com.example.aitoparts;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -26,9 +30,12 @@ import java.util.Map;
 
 public class Riwayat extends AppCompatActivity implements RecyclerClickInterface{
 
+
+
     ArrayList<Book> bookList;
     RecyclerView recyclerView;
 
+    ConstraintLayout backButtonRiwayat;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     @Override
@@ -40,6 +47,14 @@ public class Riwayat extends AppCompatActivity implements RecyclerClickInterface
         recyclerView = (RecyclerView) findViewById(R.id.recyclerRiwayat);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        backButtonRiwayat = (ConstraintLayout) findViewById(R.id.riwayatBackButton);
+        backButtonRiwayat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Riwayat.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         loadBook(sharedPreferences.getString("user_id",""));
 //        Toast.makeText(this, sharedPreferences.getString("user_id",""), Toast.LENGTH_SHORT).show();
@@ -82,10 +97,6 @@ public class Riwayat extends AppCompatActivity implements RecyclerClickInterface
 
 
                             }
-
-
-                            Toast.makeText(Riwayat.this, String.valueOf(bookList.size()), Toast.LENGTH_SHORT).show();
-
                             HistoryAdapter historyAdapter = new HistoryAdapter(Riwayat.this,bookList,Riwayat.this);
                             recyclerView.setAdapter(historyAdapter);
                         } catch (JSONException e) {
@@ -111,6 +122,14 @@ public class Riwayat extends AppCompatActivity implements RecyclerClickInterface
 
     @Override
     public void onItemClick(int position) {
-
+        Intent intent = new Intent(Riwayat.this,RiwayatDetails.class);
+//        intent.putExtra("position",String.valueOf(position));
+        intent.putExtra("nomor", String.valueOf(bookList.get(position).getId()));
+        intent.putExtra("nama",bookList.get(position).getNama());
+        intent.putExtra("kendaraan",bookList.get(position).getMobil());
+        intent.putExtra("tanggal",bookList.get(position).getTanggal());
+        intent.putExtra("jam",bookList.get(position).getJam());
+        intent.putExtra("montir", bookList.get(position).getNamaMontir());
+        startActivity(intent);
     }
 }
