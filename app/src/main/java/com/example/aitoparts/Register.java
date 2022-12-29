@@ -2,8 +2,10 @@ package com.example.aitoparts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -105,7 +107,6 @@ public class Register extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(),"Registrasi Berhasil", Toast.LENGTH_SHORT).show();
                                     Intent loginIntent = new Intent(Register.this,Login.class);
                                     startActivity(loginIntent);
-                                    Register.this.finish();
                                 } else {
                                     Toast.makeText(getApplicationContext(), resp,Toast.LENGTH_SHORT).show();
                                 }
@@ -156,8 +157,13 @@ public class Register extends AppCompatActivity {
         {
             Intent intent = new Intent(Register.this,MainActivity.class);
             startActivity(intent);
-            Register.this.finish();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Register.this,Login.class);
+        startActivity(intent);
     }
 
 }

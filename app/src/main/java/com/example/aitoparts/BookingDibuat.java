@@ -53,7 +53,6 @@ import java.util.Map;
             public void onClick(View v) {
                 Intent backToMainBooking = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(backToMainBooking);
-                BookingDibuat.this.finish();
             }
         });
 

@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
 
     ActivityMainBinding binding;
     BookFragment bookFragment;
+    HomeFragment homeFragment;
+    ProfileFragment profileFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
         replaceFragment(new HomeFragment());
         binding.bottomNavigationView.setSelectedItemId(R.id.home);
         bookFragment = new BookFragment();
-        HomeFragment homeFragment = new HomeFragment();
-        ProfileFragment profileFragment = new ProfileFragment();
+        homeFragment = new HomeFragment();
+        profileFragment = new ProfileFragment();
 
         if (getIntent().getBooleanExtra("toBook",false))
         {
@@ -71,5 +75,20 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
         Intent intent = new Intent(MainActivity.this,BookDetails.class);
         intent.putExtra("position",String.valueOf(position));
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Keluar dari aplikasi?")
+                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Exit the app if the user confirms
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton("Tidak", null)
+                .show();
     }
 }
