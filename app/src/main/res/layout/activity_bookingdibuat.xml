@@ -84,11 +84,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="25dp"
+            android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
             android:text="BOOKING ANDA TELAH DIBUAT "
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:fontFamily="@font/poppins_semibold"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,11 +99,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="No.Booking    "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guideline56"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
 
@@ -112,11 +112,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Nama   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guideline56"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6" />
 
@@ -125,11 +125,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Kendaraan   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guideline56"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
 
@@ -138,11 +138,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Tanggal   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guideline56"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8" />
 
@@ -151,11 +151,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Jam   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guideline56"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView9" />
 
@@ -164,38 +164,40 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="1002   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/namapemboking"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="right"
             android:text="Kharisma   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
+            app:layout_constraintStart_toStartOf="@+id/guideline82"
             app:layout_constraintTop_toBottomOf="@+id/noBooking" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/jeniskendaraanbaruT"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="right"
             android:text="brio 2020"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
+            app:layout_constraintStart_toStartOf="@+id/guideline82"
             app:layout_constraintTop_toBottomOf="@+id/namapemboking" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -203,11 +205,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="20 - 10 - 2020"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
             app:layout_constraintTop_toBottomOf="@+id/jeniskendaraanbaruT" />
 
@@ -216,11 +218,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="13.30 "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
             app:layout_constraintTop_toBottomOf="@+id/tanggalbaru" />
 
@@ -229,11 +231,11 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Bengkel Aitoparts Kranji "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
             app:layout_constraintTop_toBottomOf="@+id/jambaru" />
 
@@ -241,11 +243,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Noted : Silakan datang pada waktu yang \ntelah ditentukan"
             android:textColor="@color/black"
             android:textSize="13dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guideline57"
             app:layout_constraintStart_toStartOf="@+id/guideline56"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView11" />
@@ -264,6 +266,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline82"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

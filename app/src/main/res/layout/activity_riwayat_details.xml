@@ -78,37 +78,37 @@
         android:id="@+id/constraintLayout7"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:outlineAmbientShadowColor="@color/black"
         android:background="@drawable/rounded_rectangle_down"
+        android:outlineAmbientShadowColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@id/guidelineriwayat1"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineriwayatKiri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/guidelineriwayatKiri"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15"/>
+            app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineriwayatKanan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/guidelineriwayatKanan"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.85"/>
+            app:layout_constraintGuide_percent="0.85" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="No.riwayating    "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,11 +117,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Nama   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView6" />
 
@@ -130,11 +130,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Kendaraan   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
 
@@ -143,11 +143,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Tanggal   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8" />
 
@@ -156,11 +156,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Jam   "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView9" />
 
@@ -169,11 +169,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="Montir"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="@+id/guidelineriwayatKiri"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView10" />
 
@@ -182,38 +182,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="number"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/riwayatDetailsNama"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="right"
             android:text="Nama"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintStart_toStartOf="@+id/guideline81"
             app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsNomor" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/riwayatDetailsKendaraan"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="right"
             android:text="brio 2020"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintStart_toStartOf="@+id/guideline81"
             app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsNama" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -221,11 +223,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="20 - 10 - 2020"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
             app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsKendaraan" />
 
@@ -234,26 +236,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:gravity="center_vertical"
             android:text="13.30 "
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
             app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsTanggal" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/riwayatDetailsMontir"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="right"
             android:text="julpan"
             android:textColor="@color/black"
             android:textSize="15dp"
-            android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toStartOf="@+id/guidelineriwayatKanan"
+            app:layout_constraintStart_toStartOf="@+id/guideline81"
             app:layout_constraintTop_toBottomOf="@+id/riwayatDetailsJam" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline81"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
