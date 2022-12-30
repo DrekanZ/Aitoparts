@@ -50,7 +50,6 @@ public class BookingBaru extends AppCompatActivity {
     int freeMekanik;
     ConstraintLayout pilihTanggal;
 
-
     // Spinner sesi dan paket
     public Spinner sp1;
     public Spinner sp2;
@@ -80,7 +79,6 @@ public class BookingBaru extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("loginSession",MODE_PRIVATE);
         editor = sharedPreferences.edit();
-
 
         // back
         backToMainBooking = (ConstraintLayout) findViewById(R.id.backMainBooking);
@@ -112,8 +110,6 @@ public class BookingBaru extends AppCompatActivity {
             }
         });
 
-
-
         //spinner
         sp1 = (Spinner) findViewById(R.id.pilihSesiSpiner);
         sp2 = (Spinner) findViewById(R.id.pilihPaketSpiner);
@@ -138,11 +134,6 @@ public class BookingBaru extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
 
         myCalendar = Calendar.getInstance();
         pilihTanggal = findViewById(R.id.pilihTanggal);
@@ -182,8 +173,6 @@ public class BookingBaru extends AppCompatActivity {
 
     }
 
-
-
     private void loadSesi() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, DbContract.SERVER_LOADSESI_URL,
                 new Response.Listener<String>() {
@@ -197,8 +186,6 @@ public class BookingBaru extends AppCompatActivity {
                             for (int i = 0; i < array.length(); i++) {
 
                                 sesi = array.getJSONObject(i);
-
-
                                 //adding the product to product list
                                 sesiList.add(new Sesi(sesi.getString("id"),sesi.getString("jam")));
                                 sesiString.add(sesi.getString("jam"));
@@ -207,8 +194,6 @@ public class BookingBaru extends AppCompatActivity {
                             ArrayAdapter<String> adapterSesi = new ArrayAdapter<String>(BookingBaru.this,android.R.layout.simple_spinner_dropdown_item, sesiString);
                             adapterSesi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             sp1.setAdapter(adapterSesi);
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -217,7 +202,6 @@ public class BookingBaru extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                     }
                 }) {
         };
@@ -238,8 +222,6 @@ public class BookingBaru extends AppCompatActivity {
                             for (int i = 0; i < array.length(); i++) {
 
                                 paket = array.getJSONObject(i);
-
-
                                 //adding the product to product list
                                 paketList.add(new Paket(paket.getString("id"),paket.getString("nama"),paket.getString("harga")));
                                 paketString.add(paket.getString("nama"));
@@ -248,8 +230,6 @@ public class BookingBaru extends AppCompatActivity {
                             ArrayAdapter<String> adapterPaket = new ArrayAdapter<String>(BookingBaru.this,android.R.layout.simple_spinner_dropdown_item, paketString);
                             adapterPaket.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             sp2.setAdapter(adapterPaket);
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -262,7 +242,6 @@ public class BookingBaru extends AppCompatActivity {
                     }
                 }) {
         };
-
         Volley.newRequestQueue(this).add(stringRequest);
     }
 

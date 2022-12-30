@@ -179,7 +179,4 @@ public class BookFragment extends Fragment {
         Volley.newRequestQueue(getContext()).add(stringRequest);
     }
 
-
-
-
 }
