@@ -28,6 +28,7 @@ public class ProfileFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    TextView textViewTentang;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -72,6 +73,15 @@ public class ProfileFragment extends Fragment {
 
         TextView profileName = (TextView) view.findViewById(R.id.profileNameProfile);
         profileName.setText(sharedPreferences.getString("nama","ERROR USERNAME NOT FOUND"));
+
+        textViewTentang = (TextView) view.findViewById(R.id.tentangTextView);
+        textViewTentang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), Tentang.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
         logoutProfile.setOnClickListener(new View.OnClickListener() {
             @Override

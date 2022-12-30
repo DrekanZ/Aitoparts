@@ -42,6 +42,12 @@ public class MainActivity extends AppCompatActivity implements BookFragment.OnIt
             binding.bottomNavigationView.setSelectedItemId(R.id.booking);
         }
 
+        if (getIntent().getBooleanExtra("toProfile",false))
+        {
+            replaceFragment(profileFragment);
+            binding.bottomNavigationView.setSelectedItemId(R.id.profile);
+        }
+
         binding.bottomNavigationView.setOnItemSelectedListener(item ->{
 
                 switch (item.getItemId()) {
