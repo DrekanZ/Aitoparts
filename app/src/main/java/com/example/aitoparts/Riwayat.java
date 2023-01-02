@@ -30,8 +30,6 @@ import java.util.Map;
 
 public class Riwayat extends AppCompatActivity implements RecyclerClickInterface{
 
-
-
     ArrayList<Book> bookList;
     RecyclerView recyclerView;
 

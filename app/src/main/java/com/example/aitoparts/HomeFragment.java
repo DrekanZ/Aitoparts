@@ -11,7 +11,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +37,7 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    ImageView imageView;
     TextView profileName;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -76,6 +89,11 @@ public class HomeFragment extends Fragment {
 
         profileName.setText(sharedPreferences.getString("nama","error loading username"));
 
+        imageView = (ImageView) view.findViewById(R.id.appCompatImageView);
+        String id = sharedPreferences.getString("user_id",null);
+        getProfileImageLink(id);
+
+
         final ConstraintLayout riwayatButton = (ConstraintLayout) view.findViewById(R.id.GoToRiwayat);
         riwayatButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,5 +135,38 @@ public class HomeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private void getProfileImageLink(String id) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_GETPROFILEIMAGE_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+//                Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
+//                refreshPicture(response);
+                        if (!response.equals(""))
+                        {
+                            Glide.with(getActivity()).load(response).into(imageView);
+                        } else {
+                            imageView.setImageResource(R.mipmap.ic_login_image_fore);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+
+            }
+        })
+        {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("id", id);
+                return params;
+            }
+        };
+
+        Volley.newRequestQueue(getContext()).add(stringRequest);
     }
 }

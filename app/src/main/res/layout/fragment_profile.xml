@@ -47,7 +47,8 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/profileNameProfile"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:text="Harry Styles"
             android:textColor="@color/black"
@@ -55,20 +56,20 @@
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintBottom_toTopOf="@+id/guideline50"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.111"
-            app:layout_constraintStart_toEndOf="@+id/appCompatImageView3"
+            app:layout_constraintStart_toEndOf="@+id/profileImageView"
             app:layout_constraintTop_toTopOf="@+id/guideline53"
-            app:layout_constraintVertical_bias="0.504" />
+            />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView3"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline50"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
             app:layout_constraintTop_toTopOf="@+id/guideline53"
-            app:srcCompat="@mipmap/ic_login_image_fore" />
+            android:src="@mipmap/ic_login_image_fore"
+            />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline54"
@@ -82,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.13"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline53"

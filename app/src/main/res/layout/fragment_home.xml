@@ -73,7 +73,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_begin="12dp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/appCompatImageView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -81,7 +81,8 @@
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintStart_toStartOf="@+id/guidelineMiddle1"
                 app:layout_constraintTop_toTopOf="@+id/guidelineMiddle4"
-                app:srcCompat="@mipmap/ic_login_image_fore" />
+                android:src="@mipmap/ic_login_image_fore"
+                />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/appCompatImageView2"
@@ -191,8 +192,8 @@
 
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="130dp"
-                android:layout_height="132dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_margin="5dp"
                 android:tint="@color/AitopartsTeal"
                 app:layout_constraintBottom_toTopOf="@+id/guideline32"

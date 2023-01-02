@@ -78,7 +78,8 @@ public class TipsPage extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                     }
-                }) {
+                })
+        {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();

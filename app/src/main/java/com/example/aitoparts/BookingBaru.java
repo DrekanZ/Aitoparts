@@ -370,7 +370,6 @@ public class BookingBaru extends AppCompatActivity {
         sendIdSesi = String.valueOf(getSesiId(sp1.getSelectedItem().toString()));
         sendKendaraan = jeniskendaraankirim.getText().toString();
     }
-
 }
 
 
