@@ -16,7 +16,7 @@ public class forgot_password2 extends AppCompatActivity {
 
 
     public void btnMasukLUpaPassword(View view) {
-        Intent intent = new Intent(forgot_password2.this, Login.class);
-        startActivity(intent);
+        Intent baliklogin = new Intent(forgot_password2.this, Login.class);
+        startActivity(baliklogin);
     }
 }

@@ -16,7 +16,14 @@ public class Forgot_Password_1 extends AppCompatActivity {
 
 
     public void Pindah(View view) {
-        Intent intent = new Intent(Forgot_Password_1.this, forgot_password2.class);
-        startActivity(intent);
+        Intent intentpagesatunya = new Intent(Forgot_Password_1.this, forgot_password2.class);
+        startActivity(intentpagesatunya);
     }
+
+    public void lupaPasswordBackButton (View view) {
+        Intent pulanglogin = new Intent(Forgot_Password_1.this, Login.class);
+        startActivity(pulanglogin);
+    }
+
+
 }
