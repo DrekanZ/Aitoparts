@@ -12,6 +12,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,8 +29,11 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
@@ -37,6 +42,7 @@ public class Register extends AppCompatActivity {
     TextView gotoLogin;
     ProgressDialog progressDialog;
 
+    EditText edittextDayCal, edittextMonthCal, edittextYearCal;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -60,6 +66,12 @@ public class Register extends AppCompatActivity {
         gotoLogin = (TextView) findViewById(R.id.textViewToLogin);
         progressDialog = new ProgressDialog(Register.this);
 
+        edittextDayCal = (EditText) findViewById(R.id.edittextDayCal);
+        edittextMonthCal = (EditText) findViewById(R.id.edittextMonthCal);
+        edittextYearCal = (EditText) findViewById(R.id.edittextYearCal);
+
+
+
         gotoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,11 +88,35 @@ public class Register extends AppCompatActivity {
                 String sName = nama.getText().toString();
                 String sConfPassword = confPassword.getText().toString();
                 String sNoTelp = noTelp.getText().toString();
+                String year = edittextYearCal.getText().toString();
+                String month = edittextMonthCal.getText().toString();
+                String day = edittextDayCal.getText().toString();
 
-                if (!sUsername.equals("")&&!sPassword.equals("")&&!sName.equals("")&&!sNoTelp.equals(""))
+                if (!sUsername.equals("")&&!sPassword.equals("")&&!sName.equals("")&&!sNoTelp.equals("") && !year.equals("") && !day.equals("") && !    month.equals(""))
                 {
+
+                    if (!validateInput())
+                    {
+                        return;
+                    }
+
+                    String sTglLahir = year + "-" + month + "-" + day;
+                    if (!(8 < sNoTelp.length()) && !(sNoTelp.length() > 14))
+                    {
+                        noTelp.requestFocus();
+                        Toast.makeText(Register.this, "Panjang nomor harus dari 9 - 13", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (!PasswordValidator.isValid(sPassword))
+                    {
+                        password.setError("Password harus berisi huruf kecil, huruf kapital, nomor, dan simbol\nDengan panjang 8 - 20 karakter");
+                        password.requestFocus();
+                        return;
+                    }
+
                     if (sPassword.equals(sConfPassword)&& !sPassword.equals("")) {
-                        createDataToServer(sUsername,sName,sPassword, sNoTelp);
+                        createDataToServer(sUsername,sName,sPassword, sNoTelp, sTglLahir);
                     }
                     else
                     {
@@ -93,7 +129,7 @@ public class Register extends AppCompatActivity {
         });
     }
 
-    public void createDataToServer(final String username, final String name, final String password, final String notelp) {
+    public void createDataToServer(final String username, final String name, final String password, final String notelp, final String tanggalLahir) {
         if (checkNetworkConnection()) {
             progressDialog.show();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_REGISTER_URL,
@@ -127,6 +163,7 @@ public class Register extends AppCompatActivity {
                     params.put("name", name);
                     params.put("password", password);
                     params.put("notelp", notelp);
+                    params.put("tgl_lahir",tanggalLahir);
                     return params;
                 }
             };
@@ -166,4 +203,58 @@ public class Register extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private boolean validateInput() {
+        // Get the input values
+        String day = edittextDayCal.getText().toString();
+        String month = edittextMonthCal.getText().toString();
+        String year = edittextYearCal.getText().toString();
+
+        // Validate the input
+        if (day.isEmpty() || month.isEmpty() || year.isEmpty()) {
+            // One or more input fields are empty, show an error message and request focus on the first empty field
+            if (day.isEmpty()) {
+                edittextDayCal.setError("This field is required");
+                edittextDayCal.requestFocus();
+            } else if (month.isEmpty()) {
+                edittextMonthCal.setError("This field is required");
+                edittextMonthCal.requestFocus();
+            } else {
+                edittextYearCal.setError("This field is required");
+                edittextYearCal.requestFocus();
+            }
+            return false;
+        }
+
+        int dayValue = Integer.parseInt(day);
+        int monthValue = Integer.parseInt(month);
+        int yearValue = Integer.parseInt(year);
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+        if (dayValue < 1 || dayValue > 31) {
+            // Day input is not valid, show an error message and request focus on the day field
+            edittextDayCal.setError("Input is not valid");
+            edittextDayCal.requestFocus();
+            return false;
+        }
+
+        if (monthValue < 1 || monthValue > 12) {
+            // Month input is not valid, show an error message and request focus on the month field
+            edittextMonthCal.setError("Input is not valid");
+            edittextMonthCal.requestFocus();
+            return false;
+        }
+
+        if (yearValue < 1900 || yearValue > currentYear) {
+            // Year input is not valid, show an error message and request focus on the year field
+            edittextYearCal.setError("Input is not valid");
+            edittextYearCal.requestFocus();
+            return false;
+        }
+
+        // Input is valid
+        return true;
+    }
+
 }
+
+
