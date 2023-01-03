@@ -70,6 +70,8 @@ public class Register extends AppCompatActivity {
         edittextMonthCal = (EditText) findViewById(R.id.edittextMonthCal);
         edittextYearCal = (EditText) findViewById(R.id.edittextYearCal);
 
+
+
         gotoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +105,13 @@ public class Register extends AppCompatActivity {
                     {
                         noTelp.requestFocus();
                         Toast.makeText(Register.this, "Panjang nomor harus dari 9 - 13", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (!PasswordValidator.isValid(sPassword))
+                    {
+                        password.setError("Password harus berisi huruf kecil, huruf kapital, nomor, dan simbol\nDengan panjang 8 - 20 karakter");
+                        password.requestFocus();
                         return;
                     }
 
