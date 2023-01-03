@@ -101,7 +101,7 @@ public class Register extends AppCompatActivity {
                     }
 
                     String sTglLahir = year + "-" + month + "-" + day;
-                    if (8 < sNoTelp.length() && sNoTelp.length() > 14)
+                    if (!(8 < sNoTelp.length()) && !(sNoTelp.length() > 14))
                     {
                         noTelp.requestFocus();
                         Toast.makeText(Register.this, "Panjang nomor harus dari 9 - 13", Toast.LENGTH_SHORT).show();
