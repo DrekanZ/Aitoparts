@@ -28,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -41,6 +42,7 @@ public class Register extends AppCompatActivity {
     Button registerButton;
     TextView gotoLogin;
     ProgressDialog progressDialog;
+
 
     EditText edittextDayCal, edittextMonthCal, edittextYearCal;
 
@@ -69,7 +71,6 @@ public class Register extends AppCompatActivity {
         edittextDayCal = (EditText) findViewById(R.id.edittextDayCal);
         edittextMonthCal = (EditText) findViewById(R.id.edittextMonthCal);
         edittextYearCal = (EditText) findViewById(R.id.edittextYearCal);
-
 
 
         gotoLogin.setOnClickListener(new View.OnClickListener() {

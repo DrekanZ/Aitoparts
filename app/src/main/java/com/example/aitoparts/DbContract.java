@@ -16,4 +16,6 @@ public class DbContract {
     public static final String SERVER_LOADRIWAYAT_URL="https://aitoparts.galariks.my.id/mobileAPI/loadHistory.php";
     public static final String SERVER_UPLOADPROFILEIMAGE_URL="https://aitoparts.galariks.my.id/mobileAPI/uploadImage.php";
     public static final String SERVER_GETPROFILEIMAGE_URL="https://aitoparts.galariks.my.id/mobileAPI/getProfileImage.php";
+    public static final String SERVER_LUPAPASSWORD_URL="https://aitoparts.galariks.my.id/mobileAPI/checkLupaPassword.php";
+    public static final String SERVER_CHANGEPASSWORD_URL="https://aitoparts.galariks.my.id/mobileAPI/changePassword.php";
 }

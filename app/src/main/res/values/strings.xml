@@ -4,6 +4,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="toRegister"><u>Register</u></string>
+    <string name="toForgot"><u>Lupa Password</u></string>
     <string name="toLogin">Sudah punya akun? <b>Masuk</b></string>
 
     <string name="BookingBaru">Booking Baru</string>

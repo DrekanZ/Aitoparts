@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    TextView gotoForgot;
 
     EditText loginUsername, loginPassword;
     Button buttonLogin;
@@ -53,6 +54,15 @@ public class Login extends AppCompatActivity {
         loginPassword = (EditText) findViewById(R.id.textInputPassword);
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
         gotoRegister = (TextView) findViewById(R.id.textViewToRegister);
+        gotoForgot = (TextView) findViewById(R.id.textViewToForgot);
+
+        gotoForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this,ForgotPassword1.class);
+                startActivity(intent);
+            }
+        });
 
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
