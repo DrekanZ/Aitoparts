@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class forgot_password2 extends AppCompatActivity {
+public class ForgotPassword2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class forgot_password2 extends AppCompatActivity {
 
 
     public void btnMasukLUpaPassword(View view) {
-        Intent baliklogin = new Intent(forgot_password2.this, Login.class);
+        Intent baliklogin = new Intent(ForgotPassword2.this, Login.class);
         startActivity(baliklogin);
     }
 }

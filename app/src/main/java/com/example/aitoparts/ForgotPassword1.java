@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Forgot_Password_1 extends AppCompatActivity {
+public class ForgotPassword1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +16,12 @@ public class Forgot_Password_1 extends AppCompatActivity {
 
 
     public void Pindah(View view) {
-        Intent intentpagesatunya = new Intent(Forgot_Password_1.this, forgot_password2.class);
+        Intent intentpagesatunya = new Intent(ForgotPassword1.this, ForgotPassword2.class);
         startActivity(intentpagesatunya);
     }
 
     public void lupaPasswordBackButton (View view) {
-        Intent pulanglogin = new Intent(Forgot_Password_1.this, Login.class);
+        Intent pulanglogin = new Intent(ForgotPassword1.this, Login.class);
         startActivity(pulanglogin);
     }
 

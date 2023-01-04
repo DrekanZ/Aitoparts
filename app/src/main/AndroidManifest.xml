@@ -99,6 +99,22 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ForgotPassword1"
+            android:exported="false"
+            android:screenOrientation="portrait">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+        </activity>
+        <activity
+            android:name=".ForgotPassword2"
+            android:exported="false"
+            android:screenOrientation="portrait">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+        </activity>
+        <activity
             android:name=".BookingBaru"
             android:exported="false"
             android:screenOrientation="portrait">
@@ -114,7 +130,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
