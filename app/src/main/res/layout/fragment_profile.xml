@@ -61,6 +61,17 @@
             />
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImageView0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline50"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="@+id/guideline54"
+            app:layout_constraintTop_toTopOf="@+id/guideline53"
+            android:src="@mipmap/ic_login_image_fore"
+            />
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImageView"
             android:layout_width="0dp"
             android:layout_height="0dp"

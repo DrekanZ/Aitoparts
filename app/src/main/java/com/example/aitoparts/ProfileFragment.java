@@ -37,6 +37,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.ObjectKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -159,56 +162,17 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        getProfileImageLink(sharedPreferences.getString("user_id",null));
+        try {
+            Glide.with(getActivity())
+                    .load("https://aitoparts.galariks.my.id/images/profile/" + sharedPreferences.getString("username","") + ".png")
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(imageViewProfile);
+        } catch (Exception e) {
+        }
+
 
         return view;
     }
-
-    private void getProfileImageLink(String id) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_GETPROFILEIMAGE_URL,
-                new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-//                Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
-//                refreshPicture(response);
-                if (!response.equals(""))
-                {
-                    Glide.with(getActivity()).load(response).into(imageViewProfile);
-                } else {
-                    imageViewProfile.setImageResource(R.mipmap.ic_login_image_fore);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error)
-            {
-
-            }
-        })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("id", id);
-                return params;
-            }
-        };
-
-        Volley.newRequestQueue(getContext()).add(stringRequest);
-    }
-
-    private void checkPermission () {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    Uri.parse("package:" + getActivity().getPackageName()));
-            getActivity().finish();
-            startActivity(intent);
-            return;
-        }
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -222,7 +186,6 @@ public class ProfileFragment extends Fragment {
                 String username = sharedPreferences.getString("username",null);
                 String id = sharedPreferences.getString("id",null);
                 uploadBitmap(bitmap,username);
-                getProfileImageLink(id);
 
                 //displaying selected image to imageview
 
@@ -249,8 +212,11 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
-                            JSONObject obj = new JSONObject(new String(response.data));
-//                            Toast.makeText(getContext(), , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "image uploaded", Toast.LENGTH_SHORT).show();
+                            Glide.with(getActivity())
+                                    .load("https://aitoparts.galariks.my.id/images/profile/" + username + ".png")
+                                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                    .into(imageViewProfile);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -295,4 +261,7 @@ public class ProfileFragment extends Fragment {
     private void uploadImage() {
 
     }
+
+
 }
+

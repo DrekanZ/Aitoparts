@@ -74,6 +74,17 @@
                 app:layout_constraintGuide_begin="12dp" />
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/appCompatImageView0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineMiddle3"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@+id/guidelineMiddle1"
+                app:layout_constraintTop_toTopOf="@+id/guidelineMiddle4"
+                android:src="@mipmap/ic_login_image_fore"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/appCompatImageView"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

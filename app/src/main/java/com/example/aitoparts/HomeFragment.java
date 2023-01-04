@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -21,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -90,8 +92,16 @@ public class HomeFragment extends Fragment {
         profileName.setText(sharedPreferences.getString("nama","error loading username"));
 
         imageView = (ImageView) view.findViewById(R.id.appCompatImageView);
-        String id = sharedPreferences.getString("user_id",null);
-        getProfileImageLink(id);
+
+
+        try {
+            Glide.with(getActivity())
+                    .load("https://aitoparts.galariks.my.id/images/profile/" + sharedPreferences.getString("username","") + ".png")
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(imageView);
+        } catch (Exception e)
+        {
+        }
 
 
         final ConstraintLayout riwayatButton = (ConstraintLayout) view.findViewById(R.id.GoToRiwayat);
@@ -137,7 +147,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void getProfileImageLink(String id) {
+    private void getProfileImageLink(String username) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_GETPROFILEIMAGE_URL,
                 new Response.Listener<String>() {
                     @Override
@@ -162,7 +172,7 @@ public class HomeFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("id", id);
+                params.put("username", username);
                 return params;
             }
         };
