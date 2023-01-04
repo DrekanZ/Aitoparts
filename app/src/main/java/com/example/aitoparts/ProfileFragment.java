@@ -107,9 +107,6 @@ public class ProfileFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
-
         }
     }
 
@@ -184,7 +181,6 @@ public class ProfileFragment extends Fragment {
                 //getting bitmap object from uri
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
                 String username = sharedPreferences.getString("username",null);
-                String id = sharedPreferences.getString("id",null);
                 uploadBitmap(bitmap,username);
 
                 //displaying selected image to imageview
@@ -198,7 +194,7 @@ public class ProfileFragment extends Fragment {
 
     public byte[] getFileDataFromDrawable(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 70, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
     }
 
@@ -257,11 +253,5 @@ public class ProfileFragment extends Fragment {
         //adding the request to volley
         Volley.newRequestQueue(getActivity()).add(volleyMultipartRequest);
     }
-
-    private void uploadImage() {
-
-    }
-
-
 }
 
