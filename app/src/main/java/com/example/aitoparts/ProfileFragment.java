@@ -160,6 +160,7 @@ public class ProfileFragment extends Fragment {
         });
 
         try {
+            Glide.with(getActivity()).clear(imageViewProfile);
             Glide.with(getActivity())
                     .load("https://aitoparts.galariks.my.id/images/profile/" + sharedPreferences.getString("username","") + ".png")
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -208,11 +209,12 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
-                            Toast.makeText(getActivity(), "image uploaded", Toast.LENGTH_SHORT).show();
+                            Glide.with(getActivity()).clear(imageViewProfile);
                             Glide.with(getActivity())
                                     .load("https://aitoparts.galariks.my.id/images/profile/" + username + ".png")
                                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                                     .into(imageViewProfile);
+                            Toast.makeText(getActivity(), "image uploaded", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

@@ -22,6 +22,7 @@
             android:autoSizeTextType="uniform"
             android:textColor="@color/white"
             android:padding="5dp"
+            android:gravity="center"
             android:text="@string/TipsPerawatan"
             android:fontFamily="@font/poppins_semibold"
             app:layout_constraintBottom_toBottomOf="parent"

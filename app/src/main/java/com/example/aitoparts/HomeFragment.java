@@ -95,6 +95,7 @@ public class HomeFragment extends Fragment {
 
 
         try {
+            Glide.with(getActivity()).clear(imageView);
             Glide.with(getActivity())
                     .load("https://aitoparts.galariks.my.id/images/profile/" + sharedPreferences.getString("username","") + ".png")
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -145,38 +146,5 @@ public class HomeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
-    }
-
-    private void getProfileImageLink(String username) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, DbContract.SERVER_GETPROFILEIMAGE_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-//                Toast.makeText(getContext(), response, Toast.LENGTH_SHORT).show();
-//                refreshPicture(response);
-                        if (!response.equals(""))
-                        {
-                            Glide.with(getActivity()).load(response).into(imageView);
-                        } else {
-                            imageView.setImageResource(R.mipmap.ic_login_image_fore);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error)
-            {
-
-            }
-        })
-        {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("username", username);
-                return params;
-            }
-        };
-
-        Volley.newRequestQueue(getContext()).add(stringRequest);
     }
 }
