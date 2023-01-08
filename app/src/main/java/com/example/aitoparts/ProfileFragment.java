@@ -105,8 +105,6 @@ public class ProfileFragment extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("loginSession", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-
-
 //        File file = new File(imagePath);
 //        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
 
@@ -148,8 +146,7 @@ public class ProfileFragment extends Fragment {
         try {
             Glide.with(getActivity()).clear(imageViewProfile);
             Glide.with(getActivity())
-                    .load("https://aitoparts.galariks.my.id/images/profile/" + sharedPreferences.getString("username","") + ".png")
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .load(sharedPreferences.getString("ProfileImage",""))
                     .into(imageViewProfile);
         } catch (Exception e) {
         }
@@ -195,12 +192,19 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
-                            Glide.with(getActivity()).clear(imageViewProfile);
-                            Glide.with(getActivity())
-                                    .load("https://aitoparts.galariks.my.id/images/profile/" + username + ".png")
-                                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                                    .into(imageViewProfile);
-                            Toast.makeText(getActivity(), "image uploaded", Toast.LENGTH_SHORT).show();
+                            String responseString = new String(response.data);
+
+                            if (responseString.equals("Fail")) {
+                                Toast.makeText(getActivity(),"Failed uploading image", Toast.LENGTH_SHORT).show();
+                            } else {
+                                editor.putString("ProfileImage",responseString);
+                                editor.commit();
+                                Glide.with(getActivity()).clear(imageViewProfile);
+                                Glide.with(getActivity())
+                                        .load(responseString)
+                                        .into(imageViewProfile);
+                                Toast.makeText(getActivity(), "image uploaded", Toast.LENGTH_SHORT).show();
+                            }
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -237,7 +241,6 @@ public class ProfileFragment extends Fragment {
                 return params;
             }
         };
-
         //adding the request to volley
         Volley.newRequestQueue(getActivity()).add(volleyMultipartRequest);
     }

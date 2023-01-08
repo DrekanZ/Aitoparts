@@ -97,11 +97,9 @@ public class HomeFragment extends Fragment {
         try {
             Glide.with(getActivity()).clear(imageView);
             Glide.with(getActivity())
-                    .load("https://aitoparts.galariks.my.id/images/profile/" + sharedPreferences.getString("username","") + ".png")
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .load(sharedPreferences.getString("ProfileImage",""))
                     .into(imageView);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
         }
 
 
