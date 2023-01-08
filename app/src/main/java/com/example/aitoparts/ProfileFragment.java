@@ -2,6 +2,7 @@ package com.example.aitoparts;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -96,12 +97,16 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    ProgressDialog progressDialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         ConstraintLayout logoutProfile = (ConstraintLayout) view.findViewById(R.id.logOutButton);
-
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Uploading Image");
+        progressDialog.setCancelable(false);
         sharedPreferences = getActivity().getSharedPreferences("loginSession", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -183,17 +188,13 @@ public class ProfileFragment extends Fragment {
     }
 
     private void uploadBitmap(final Bitmap bitmap,final String username) {
-
-        //getting the tag from the edittext
-
-        //our custom volley request
+        progressDialog.show();
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, DbContract.SERVER_UPLOADPROFILEIMAGE_URL,
                 new Response.Listener<NetworkResponse>() {
                     @Override
                     public void onResponse(NetworkResponse response) {
                         try {
                             String responseString = new String(response.data);
-
                             if (responseString.equals("Fail")) {
                                 Toast.makeText(getActivity(),"Failed uploading image", Toast.LENGTH_SHORT).show();
                             } else {
@@ -203,16 +204,19 @@ public class ProfileFragment extends Fragment {
                                 Glide.with(getActivity())
                                         .load(responseString)
                                         .into(imageViewProfile);
-                                Toast.makeText(getActivity(), "image uploaded", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Image uploaded", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
+                            progressDialog.dismiss();
                             e.printStackTrace();
                         }
+                        progressDialog.dismiss();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
                         Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
