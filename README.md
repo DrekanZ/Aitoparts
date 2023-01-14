@@ -6,5 +6,3 @@ Repositori ini berisi kode sumber untuk aplikasi Android yang memungkinkan pengg
 Aplikasi ini memungkinkan pengguna untuk melihat reservasi yang tersedia, memilih waktu dan tanggal, serta melakukan reservasi.
 
 Aplikasi ini dibangun menggunakan Java dan XML di Android Studio, dan memanfaatkan MySQL dengan XAMPP sebagai database.
-
-Bantuin kerjain bangsat-kharisma
