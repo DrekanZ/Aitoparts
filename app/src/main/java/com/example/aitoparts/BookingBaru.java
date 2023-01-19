@@ -335,7 +335,6 @@ public class BookingBaru extends AppCompatActivity {
                     Intent intent = new Intent(BookingBaru.this,BookingDibuat.class);
                     intent.putExtra("booking_id",String.valueOf(id));
                     startActivity(intent);
-                    Toast.makeText(BookingBaru.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

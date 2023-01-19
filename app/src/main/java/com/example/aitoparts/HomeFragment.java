@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment {
         try {
             Glide.with(getActivity()).clear(imageView);
             Glide.with(getActivity())
-                    .load(sharedPreferences.getString("ProfileImage",""))
+                    .load("http://" + DbContract.localIp + "/aitoparts/images/profile/" + sharedPreferences.getString("ProfileImage",""))
                     .into(imageView);
         } catch (Exception e) {
         }

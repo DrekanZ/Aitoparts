@@ -37,16 +37,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Multipart;
-import retrofit2.http.POST;
-import retrofit2.http.Part;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -151,7 +142,8 @@ public class ProfileFragment extends Fragment {
         try {
             Glide.with(getActivity()).clear(imageViewProfile);
             Glide.with(getActivity())
-                    .load(sharedPreferences.getString("ProfileImage",""))
+                    .load("http://" + DbContract.localIp + "/aitoparts/images/profile/" +
+                            "" + sharedPreferences.getString("ProfileImage",""))
                     .into(imageViewProfile);
         } catch (Exception e) {
         }
@@ -198,13 +190,14 @@ public class ProfileFragment extends Fragment {
                             if (responseString.equals("Fail")) {
                                 Toast.makeText(getActivity(),"Failed uploading image", Toast.LENGTH_SHORT).show();
                             } else {
+                                Toast.makeText(getActivity(), new String(response.data), Toast.LENGTH_SHORT).show();
                                 editor.putString("ProfileImage",responseString);
                                 editor.commit();
                                 Glide.with(getActivity()).clear(imageViewProfile);
                                 Glide.with(getActivity())
-                                        .load(responseString)
+                                        .load("http://" + DbContract.localIp + "/aitoparts/images/profile/" + responseString)
                                         .into(imageViewProfile);
-                                Toast.makeText(getActivity(), "Image uploaded", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "Image uploaded", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             progressDialog.dismiss();

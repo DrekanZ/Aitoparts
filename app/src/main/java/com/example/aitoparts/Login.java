@@ -49,6 +49,8 @@ public class Login extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("loginSession",MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        checkSession();
+
         progressDialog = new ProgressDialog(Login.this);
         loginUsername = (EditText) findViewById(R.id.textInputUsername);
         loginPassword = (EditText) findViewById(R.id.textInputPassword);
@@ -207,5 +209,14 @@ public class Login extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(Login.this,Register.class);
         startActivity(intent);
+    }
+
+    private void checkSession()
+    {
+        if (sharedPreferences.getBoolean("logged_in",false))
+        {
+            Intent intent = new Intent(Login.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

@@ -37,6 +37,13 @@ public class ForgotPassword1 extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password1);
 
         backToLogin = (ConstraintLayout) findViewById(R.id.lupaPasswordBackButton);
+        backToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ForgotPassword1.this,Login.class);
+                startActivity(intent);
+            }
+        });
 
         lupaPassword = (Button) findViewById(R.id.btnLupaPassword);
         editTextUsername = (EditText) findViewById(R.id.usernameLupaPassword);

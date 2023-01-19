@@ -39,7 +39,7 @@ public class PartsAdapter extends RecyclerView.Adapter<PartsAdapter.PartsViewHol
         holder.textViewPartsPrice.setText("Rp. " + parts.getPrice());
         holder.textViewStockParts.setText(String.valueOf(parts.getInStock()));
 
-        Glide.with(mCtx).load(parts.getImageLink()).into(holder.imageViewParts);
+        Glide.with(mCtx).load("http://" + DbContract.localIp + "/aitoparts/images/" + parts.getImageLink()).into(holder.imageViewParts);
 
     }
 

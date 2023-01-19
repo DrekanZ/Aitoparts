@@ -40,7 +40,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.TipsViewHolder
         holder.textView.setText(tips.getText());
         holder.textViewTitle.setText(tips.getTitle());
 
-        Glide.with(mCtx).load(tips.getImageLink()).into(holder.imageView);
+        Glide.with(mCtx).load("http://" + DbContract.localIp + "/aitoparts/images/" + tips.getImageLink()).into(holder.imageView);
 
     }
 
